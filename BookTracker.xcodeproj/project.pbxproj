@@ -13,6 +13,7 @@
 		8631C266285A698F00625E39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C265285A698F00625E39 /* Preview Assets.xcassets */; };
 		8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26C285A6A9300625E39 /* Assets-Enum.swift */; };
 		8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26E285A6D7800625E39 /* ProgressCircle.swift */; };
+		8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C270285A730D00625E39 /* StopWatchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		8631C265285A698F00625E39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8631C26C285A6A9300625E39 /* Assets-Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets-Enum.swift"; sourceTree = "<group>"; };
 		8631C26E285A6D7800625E39 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
+		8631C270285A730D00625E39 /* StopWatchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				8631C25E285A698E00625E39 /* BookTrackerApp.swift */,
 				8631C260285A698E00625E39 /* StopWatchView.swift */,
 				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
+				8631C270285A730D00625E39 /* StopWatchButton.swift */,
 				8631C262285A698F00625E39 /* Assets.xcassets */,
 				8631C26C285A6A9300625E39 /* Assets-Enum.swift */,
 				8631C264285A698F00625E39 /* Preview Content */,
@@ -145,6 +148,7 @@
 			files = (
 				8631C261285A698E00625E39 /* StopWatchView.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
+				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */,
 				8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */,
 			);
