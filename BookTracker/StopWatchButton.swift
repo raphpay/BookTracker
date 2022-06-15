@@ -10,7 +10,7 @@ import SwiftUI
 struct StopWatchButton: View {
     
     let title: String
-    var color: Color = .red
+    var color: Color = Color.ui.lightBlue
     
     var body: some View {
         ZStack {
@@ -32,6 +32,6 @@ struct StopWatchButton: View {
 
 struct StopWatchButton_Previews: PreviewProvider {
     static var previews: some View {
-        StopWatchButton(title: "Start", color: .green)
+        StopWatchButton(title: "Start", color: Color.ui.lightBlue)
     }
 }

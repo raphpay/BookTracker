@@ -34,7 +34,7 @@ struct StopWatchView: View {
                         Button {
                             pauseTimer()
                         } label: {
-                            StopWatchButton(title: "Pause")
+                            StopWatchButton(title: "Pause", color: .ui.corn)
                         }
                         
                         Spacer()
@@ -42,13 +42,13 @@ struct StopWatchView: View {
                         Button {
                             stopTimer()
                         } label: {
-                            StopWatchButton(title: "Stop")
+                            StopWatchButton(title: "Stop", color: .ui.orchid)
                         }
                     } else {
                         Button {
                             startTimer()
                         } label: {
-                            StopWatchButton(title: "Start", color: .green)
+                            StopWatchButton(title: "Start")
                         }
                     }
                 }
