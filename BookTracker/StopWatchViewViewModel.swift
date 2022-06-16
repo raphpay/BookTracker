@@ -18,21 +18,37 @@ class StopWatchViewViewModel: ObservableObject {
     let maximumTime: Float = 6
 }
 
+// MARK: - Actions
 extension StopWatchViewViewModel {
     func startTimer() {
         timerIsRunning = true
         timerHasStarted = true
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { tempTimer in
-            guard self.isActive else { return }
-            
-            self.progressValue += 1
-            self.timeRemaining -= 1
-        })
+        runTimer()
     }
     
     func continueTimer() {
         timerIsRunning = true
-        
+        runTimer()
+    }
+    
+    func pauseTimer() {
+        killTimer()
+        timerIsRunning = false
+    }
+    
+    func stopTimer() {
+        killTimer()
+        timeRemaining = Int(maximumTime)
+        progressValue = 0
+        timerIsRunning = false
+        timerHasStarted = false
+    }
+}
+
+
+// MARK: - Helper methods
+extension StopWatchViewViewModel {
+    func runTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { tempTimer in
             guard self.isActive else { return }
             
@@ -41,20 +57,8 @@ extension StopWatchViewViewModel {
         })
     }
     
-    func pauseTimer() {
+    func killTimer() {
         timer?.invalidate()
         timer = nil
-        
-        timerIsRunning = false
-    }
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        
-        timeRemaining = Int(maximumTime)
-        progressValue = 0
-        timerIsRunning = false
-        timerHasStarted = false
     }
 }
