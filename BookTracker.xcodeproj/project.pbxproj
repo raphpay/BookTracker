@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C25E285A698E00625E39 /* BookTrackerApp.swift */; };
-		8631C261285A698E00625E39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C260285A698E00625E39 /* ContentView.swift */; };
+		8631C261285A698E00625E39 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C260285A698E00625E39 /* StopWatchView.swift */; };
 		8631C263285A698F00625E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C262285A698F00625E39 /* Assets.xcassets */; };
 		8631C266285A698F00625E39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C265285A698F00625E39 /* Preview Assets.xcassets */; };
+		8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26C285A6A9300625E39 /* Assets-Enum.swift */; };
+		8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26E285A6D7800625E39 /* ProgressCircle.swift */; };
+		8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C270285A730D00625E39 /* StopWatchButton.swift */; };
+		8631C273285A741100625E39 /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C272285A741100625E39 /* Colors+Ext.swift */; };
+		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8631C25B285A698E00625E39 /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8631C25E285A698E00625E39 /* BookTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerApp.swift; sourceTree = "<group>"; };
-		8631C260285A698E00625E39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8631C260285A698E00625E39 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		8631C262285A698F00625E39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8631C265285A698F00625E39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8631C26C285A6A9300625E39 /* Assets-Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets-Enum.swift"; sourceTree = "<group>"; };
+		8631C26E285A6D7800625E39 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
+		8631C270285A730D00625E39 /* StopWatchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchButton.swift; sourceTree = "<group>"; };
+		8631C272285A741100625E39 /* Colors+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Ext.swift"; sourceTree = "<group>"; };
+		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +62,13 @@
 			isa = PBXGroup;
 			children = (
 				8631C25E285A698E00625E39 /* BookTrackerApp.swift */,
-				8631C260285A698E00625E39 /* ContentView.swift */,
+				8631C260285A698E00625E39 /* StopWatchView.swift */,
+				8631C272285A741100625E39 /* Colors+Ext.swift */,
+				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
+				8631C270285A730D00625E39 /* StopWatchButton.swift */,
+				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
 				8631C262285A698F00625E39 /* Assets.xcassets */,
+				8631C26C285A6A9300625E39 /* Assets-Enum.swift */,
 				8631C264285A698F00625E39 /* Preview Content */,
 			);
 			path = BookTracker;
@@ -137,8 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8631C261285A698E00625E39 /* ContentView.swift in Sources */,
+				8631C273285A741100625E39 /* Colors+Ext.swift in Sources */,
+				8631C261285A698E00625E39 /* StopWatchView.swift in Sources */,
+				86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
+				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
+				8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */,
+				8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
