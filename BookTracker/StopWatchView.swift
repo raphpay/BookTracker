@@ -9,13 +9,8 @@ import SwiftUI
 
 struct StopWatchView: View {
     
-    @State var progressValue: Float = 0.0
-    @State var hasStarted: Bool = false
-    @State var timeRemaining = 6
+    @StateObject private var viewModel = StopWatchViewViewModel()
     @Environment(\.scenePhase) var scenePhase
-    @State private var isActive = true
-    let maximumTime: Float = 6
-    let timer = Timer.publish(every: 1, on: .main, in: .common)
     
     var body: some View {
         ZStack {
@@ -29,14 +24,14 @@ struct StopWatchView: View {
                     .font(.title)
                     .bold()
                 
-                ProgressCircle(progress: $progressValue, maximumTimeInS: maximumTime, timeRemaining: $timeRemaining)
+                ProgressCircle(progress: $viewModel.progressValue, maximumTimeInS: viewModel.maximumTime, timeRemaining: $viewModel.timeRemaining)
                     .frame(width: 300, height: 300)
                     .padding()
                 
                 HStack {
-                    if (hasStarted) {
+                    if (viewModel.hasStarted) {
                         Button {
-                            pauseTimer()
+                            viewModel.pauseTimer()
                         } label: {
                             StopWatchButton(title: "Pause", color: .ui.corn)
                         }
@@ -44,13 +39,13 @@ struct StopWatchView: View {
                         Spacer()
 
                         Button {
-                            stopTimer()
+                            viewModel.stopTimer()
                         } label: {
                             StopWatchButton(title: "Stop", color: .ui.orchid)
                         }
                     } else {
                         Button {
-                            startTimer()
+                            viewModel.startTimer()
                         } label: {
                             StopWatchButton(title: "Start")
                         }
@@ -62,34 +57,12 @@ struct StopWatchView: View {
             }
             .padding(.top, 40)
         }
-        .onReceive(timer) { time in
-            guard isActive else { return }
-            
-            if (timeRemaining > 0) {
-                timeRemaining -= 1
-                progressValue += 1
-            }
+        .onReceive(viewModel.timer) { _ in
+            viewModel.onReceiveTimer()
         }
         .onChange(of: scenePhase) { newPhase in
-            if newPhase == .active {
-                isActive = true
-            } else {
-                isActive = false
-            }
+            viewModel.onChangeScenePhase(newPhase)
         }
-    }
-    
-    func startTimer() {
-        hasStarted = true
-        let _ = timer.connect()
-    }
-    
-    func pauseTimer() {
-        // TODO: Create action
-    }
-    
-    func stopTimer() {
-        // TODO: Create action
     }
 }
 
