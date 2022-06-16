@@ -20,6 +20,7 @@
 		86E9BF39285BA19C00EF37EA /* TemporaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF38285BA19C00EF37EA /* TemporaryView.swift */; };
 		86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3A285BA22E00EF37EA /* DismissButton.swift */; };
 		86E9BF3D285BA24900EF37EA /* SFSymbols-Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3C285BA24900EF37EA /* SFSymbols-Enum.swift */; };
+		86E9BF3F285BA43100EF37EA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3E285BA43100EF37EA /* Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		86E9BF38285BA19C00EF37EA /* TemporaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryView.swift; sourceTree = "<group>"; };
 		86E9BF3A285BA22E00EF37EA /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		86E9BF3C285BA24900EF37EA /* SFSymbols-Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFSymbols-Enum.swift"; sourceTree = "<group>"; };
+		86E9BF3E285BA43100EF37EA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				8631C25E285A698E00625E39 /* BookTrackerApp.swift */,
 				86E9BF38285BA19C00EF37EA /* TemporaryView.swift */,
 				8631C260285A698E00625E39 /* StopWatchView.swift */,
+				86E9BF3E285BA43100EF37EA /* Background.swift */,
 				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
 				86E9BF3A285BA22E00EF37EA /* DismissButton.swift */,
 				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
@@ -175,6 +178,7 @@
 				86E9BF3D285BA24900EF37EA /* SFSymbols-Enum.swift in Sources */,
 				86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */,
 				8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */,
+				86E9BF3F285BA43100EF37EA /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,9 +14,8 @@ struct StopWatchView: View {
     
     var body: some View {
         ZStack {
-            Image(Assets.light.name)
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
+            
+            Background()
             
             VStack {
                 

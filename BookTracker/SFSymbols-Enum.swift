@@ -9,4 +9,6 @@ import Foundation
 
 enum SFSymbols: String {
     case close = "xmark"
+    case plusCircle = "plus.circle"
+    case minusCircle = "minus.circle"
 }
