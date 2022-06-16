@@ -12,9 +12,10 @@ class StopWatchViewViewModel: ObservableObject {
     @Published var progressValue: Float = 0.0
     @Published var timerIsRunning: Bool = false
     @Published var timerHasStarted: Bool = false
-    @Published var timeRemaining = 6
     @Published var isActive = true
     @Published var timer: Timer? = nil
+    // TODO: These values should not be hardcoded
+    @Published var timeRemaining = 6
     let maximumTime: Float = 6
 }
 
