@@ -29,11 +29,19 @@ struct StopWatchView: View {
                     .padding()
                 
                 HStack {
-                    if (viewModel.hasStarted) {
+                    if (viewModel.timerHasStarted) {
                         Button {
-                            viewModel.pauseTimer()
+                            if (viewModel.timerIsRunning) {
+                                viewModel.pauseTimer()
+                            } else {
+                                viewModel.continueTimer()
+                            }
                         } label: {
-                            StopWatchButton(title: "Pause", color: .ui.corn)
+                            if (viewModel.timerIsRunning) {
+                                StopWatchButton(title: "Pause", color: .ui.corn)
+                            } else {
+                                StopWatchButton(title: "Continue")
+                            }
                         }
                         
                         Spacer()
@@ -56,12 +64,6 @@ struct StopWatchView: View {
                 Spacer()
             }
             .padding(.top, 40)
-        }
-        .onReceive(viewModel.timer) { _ in
-            viewModel.onReceiveTimer()
-        }
-        .onChange(of: scenePhase) { newPhase in
-            viewModel.onChangeScenePhase(newPhase)
         }
     }
 }
