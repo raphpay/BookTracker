@@ -11,7 +11,11 @@ struct StopWatchView: View {
     
     @State var progressValue: Float = 0.0
     @State var hasStarted: Bool = false
-    let totalTimeInSec = 600
+    @State var timeRemaining = 6
+    @Environment(\.scenePhase) var scenePhase
+    @State private var isActive = true
+    let maximumTime: Float = 6
+    let timer = Timer.publish(every: 1, on: .main, in: .common)
     
     var body: some View {
         ZStack {
@@ -25,7 +29,7 @@ struct StopWatchView: View {
                     .font(.title)
                     .bold()
                 
-                ProgressCircle(progress: $progressValue)
+                ProgressCircle(progress: $progressValue, maximumTimeInS: maximumTime, timeRemaining: $timeRemaining)
                     .frame(width: 300, height: 300)
                     .padding()
                 
@@ -58,10 +62,26 @@ struct StopWatchView: View {
             }
             .padding(.top, 40)
         }
+        .onReceive(timer) { time in
+            guard isActive else { return }
+            
+            if (timeRemaining > 0) {
+                timeRemaining -= 1
+                progressValue += 1
+            }
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                isActive = true
+            } else {
+                isActive = false
+            }
+        }
     }
     
     func startTimer() {
         hasStarted = true
+        let _ = timer.connect()
     }
     
     func pauseTimer() {
