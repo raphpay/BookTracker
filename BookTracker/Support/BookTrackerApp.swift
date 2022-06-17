@@ -14,7 +14,7 @@ struct BookTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(viewRouter: viewRouter)
+            ContentView(viewRouter: viewRouter)
         }
     }
 }

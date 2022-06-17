@@ -9,7 +9,6 @@ import Foundation
 
 enum Page {
      case home
-     case stopwatch
      case more
  }
 

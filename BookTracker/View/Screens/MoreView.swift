@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  MoreView.swift
 //  BookTracker
 //
 //  Created by Raphaël Payet on 17/06/2022.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct MoreView: View {
     var body: some View {
-        Text("Home")
+        Text("More")
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        MoreView()
     }
 }

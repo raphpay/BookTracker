@@ -67,7 +67,7 @@ struct StopWatchView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct StopWatchView_Previews: PreviewProvider {
     static var previews: some View {
         StopWatchView()
     }
