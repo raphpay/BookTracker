@@ -43,6 +43,15 @@ struct PageCounterView: View {
                 }
                 
                 Spacer()
+                
+                HStack {
+                    
+                    BookInfos(title: "Hyper Focus", author: "Chris Bailey", category: "Self Development")
+                    
+                    BookCover(bookImage: Assets.bookCover.name)
+                }
+                
+                Spacer()
             }
         }
     }
@@ -68,5 +77,45 @@ struct StepperButton: View {
                 .frame(width: 35, height: 35)
                 .foregroundColor(.ui.darkBlueGray)
         }
+    }
+}
+
+struct BookInfos: View {
+    
+    var title: String
+    var author: String
+    var category: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.title)
+                .bold()
+                .padding()
+            
+            Text("by \(author)")
+                .foregroundColor(.secondary)
+            
+            Text(category)
+                .font(.title3)
+        }
+    }
+}
+
+
+struct BookCover: View {
+    
+    var bookImage: String
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(lineWidth: 1)
+            
+            Image(bookImage)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        }
+        .frame(width: 160, height: 220)
     }
 }

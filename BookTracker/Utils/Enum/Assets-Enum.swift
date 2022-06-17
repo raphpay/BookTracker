@@ -9,6 +9,7 @@ import Foundation
 
 enum Assets {
     case dark, light
+    case bookCover
     
     var name: String {
         switch self {
@@ -16,6 +17,8 @@ enum Assets {
             return "dark"
         case .light:
             return "light"
+        case .bookCover:
+            return "Book-Cover"
         }
     }
 }
