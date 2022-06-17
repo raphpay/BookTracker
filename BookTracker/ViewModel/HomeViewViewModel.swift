@@ -39,6 +39,7 @@ extension HomeViewViewModel {
     func dragGestureEnded(xTranslation: CGFloat, screenWidth: CGFloat) {
         withAnimation(.spring()) {
             guard abs(xTranslation) > screenWidth/3 else {
+                changeTag(tag: selectedTag, width: screenWidth)
                 return
             }
             
@@ -48,14 +49,12 @@ extension HomeViewViewModel {
                 } else {
                     changeTag(tag: 0, width: screenWidth)
                 }
-                changeOffset(width: screenWidth)
             } else if xTranslation < 0 {
                 if selectedTag <= 2 {
                     changeTag(tag: selectedTag + 1, width: screenWidth)
                 } else {
                     changeTag(tag: 2, width: screenWidth)
                 }
-                changeOffset(width: screenWidth)
             }
         }
     }
