@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State var selectedTag: Int = 1
+    
     var body: some View {
-        Text("Home")
+        VStack {
+            GeometryReader { geometry in
+                HStack {
+                    BookCategoryButton(title: "To read", tag: 0,
+                                       width: geometry.size.width,
+                                       selectedTag: $selectedTag)
+                    Spacer()
+                    BookCategoryButton(title: "Reading", tag: 1,
+                                       width: geometry.size.width,
+                                       selectedTag: $selectedTag)
+                    Spacer()
+                    BookCategoryButton(title: "Finished", tag: 2,
+                                       width: geometry.size.width,
+                                       selectedTag: $selectedTag)
+                }
+            }
+            .padding(.top)
+            .padding(.horizontal)
+            
+            Spacer()
+        }
     }
 }
 
