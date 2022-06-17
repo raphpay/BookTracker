@@ -75,21 +75,10 @@
 		8631C25D285A698E00625E39 /* BookTracker */ = {
 			isa = PBXGroup;
 			children = (
-				8631C25E285A698E00625E39 /* BookTrackerApp.swift */,
-				86E9BF38285BA19C00EF37EA /* TemporaryView.swift */,
-				8631C260285A698E00625E39 /* StopWatchView.swift */,
-				86E9BF3E285BA43100EF37EA /* Background.swift */,
-				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
-				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
-				86E9BF3A285BA22E00EF37EA /* DismissButton.swift */,
-				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
-				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
-				8631C270285A730D00625E39 /* StopWatchButton.swift */,
-				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
-				8631C262285A698F00625E39 /* Assets.xcassets */,
-				8631C26C285A6A9300625E39 /* Assets-Enum.swift */,
-				8631C272285A741100625E39 /* Colors+Ext.swift */,
-				86E9BF3C285BA24900EF37EA /* SFSymbols-Enum.swift */,
+				86E9BF45285C4B5C00EF37EA /* View */,
+				86E9BF48285C4B7C00EF37EA /* ViewModel */,
+				86E9BF49285C4B8400EF37EA /* Utils */,
+				86E9BF44285C4B5100EF37EA /* Support */,
 				8631C264285A698F00625E39 /* Preview Content */,
 			);
 			path = BookTracker;
@@ -101,6 +90,81 @@
 				8631C265285A698F00625E39 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86E9BF44285C4B5100EF37EA /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8631C25E285A698E00625E39 /* BookTrackerApp.swift */,
+				8631C262285A698F00625E39 /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		86E9BF45285C4B5C00EF37EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF47285C4B7000EF37EA /* Components */,
+				86E9BF46285C4B6200EF37EA /* Screens */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		86E9BF46285C4B6200EF37EA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF38285BA19C00EF37EA /* TemporaryView.swift */,
+				8631C260285A698E00625E39 /* StopWatchView.swift */,
+				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		86E9BF47285C4B7000EF37EA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF3E285BA43100EF37EA /* Background.swift */,
+				86E9BF3A285BA22E00EF37EA /* DismissButton.swift */,
+				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
+				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
+				8631C270285A730D00625E39 /* StopWatchButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		86E9BF48285C4B7C00EF37EA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
+				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		86E9BF49285C4B8400EF37EA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF4A285C4B8A00EF37EA /* Enum */,
+				86E9BF4B285C4B9000EF37EA /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		86E9BF4A285C4B8A00EF37EA /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				8631C26C285A6A9300625E39 /* Assets-Enum.swift */,
+				86E9BF3C285BA24900EF37EA /* SFSymbols-Enum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		86E9BF4B285C4B9000EF37EA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8631C272285A741100625E39 /* Colors+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
