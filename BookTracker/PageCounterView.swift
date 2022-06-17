@@ -9,14 +9,7 @@ import SwiftUI
 
 struct PageCounterView: View {
     @Environment(\.dismiss) var dismiss
-    
-    @State private var completionAmount: Float = 0.0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    let totalPages: Float = 200
-    let maximumCompletionAmount: Float = 0.5
-    @State var pagesRead: Float = 0
-    @State var progress: Float = 0
+    @StateObject private var viewModel = PageCounterViewViewModel()
 
     
     var body: some View {
@@ -27,19 +20,19 @@ struct PageCounterView: View {
                 DismissButton { dismiss() }
                     .padding(.bottom)
                 
-                Text("\(String(format: "%.1f", progress))% Completed")
+                Text("\(String(format: "%.1f", viewModel.progress))% Completed")
                     .font(.title)
                     .bold()
                 
                 ZStack {
                     Circle()
-                        .trim(from: 0, to: CGFloat(maximumCompletionAmount))
+                        .trim(from: 0, to: CGFloat(viewModel.maximumCompletionAmount))
                         .stroke(Color.ui.darkBlueGray.opacity(0.5), lineWidth: 20)
                         .frame(width: 200, height: 200)
                         .rotationEffect(.degrees(180))
                     
                     Circle()
-                        .trim(from: 0, to: CGFloat(completionAmount))
+                        .trim(from: 0, to: CGFloat(viewModel.completionAmount))
                         .stroke(Color.ui.orchid, lineWidth: 20)
                         .frame(width: 200, height: 200)
                         .rotationEffect(.degrees(180))
@@ -47,7 +40,7 @@ struct PageCounterView: View {
                 
                 HStack(spacing: 30) {
                     Button {
-                        decrementProgress()
+                        viewModel.decrementProgress()
                     } label: {
                         Image(systemName: SFSymbols.minusCircle.rawValue)
                             .font(.title)
@@ -55,12 +48,12 @@ struct PageCounterView: View {
                             .foregroundColor(.ui.darkBlueGray)
                     }
 
-                    Text("Page \(Int(pagesRead)) over \(Int(totalPages))")
+                    Text("Page \(Int(viewModel.pagesRead)) over \(Int(viewModel.totalPages))")
                         .font(.title2)
                         .bold()
                     
                     Button {
-                        incrementProgress()
+                        viewModel.incrementProgress()
                     } label: {
                         Image(systemName: SFSymbols.plusCircle.rawValue)
                             .font(.title)
@@ -71,28 +64,6 @@ struct PageCounterView: View {
                 
                 Spacer()
             }
-        }
-    }
-    
-    func incrementProgress() {
-        if (pagesRead < totalPages) {
-            pagesRead += 1
-            calculateProgress()
-        }
-    }
-    
-    func decrementProgress() {
-        if (pagesRead > 0) {
-            pagesRead -= 1
-            calculateProgress()
-        }
-    }
-    
-    func calculateProgress() {
-        let percentage = pagesRead/totalPages * 100
-        progress = round(percentage * 10) / 10.0
-        withAnimation {
-            completionAmount = maximumCompletionAmount * pagesRead / totalPages
         }
     }
 }
