@@ -22,6 +22,7 @@
 		86E9BF3D285BA24900EF37EA /* SFSymbols-Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3C285BA24900EF37EA /* SFSymbols-Enum.swift */; };
 		86E9BF3F285BA43100EF37EA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3E285BA43100EF37EA /* Background.swift */; };
 		86E9BF41285C48CF00EF37EA /* PageCounterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */; };
+		86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		86E9BF3C285BA24900EF37EA /* SFSymbols-Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFSymbols-Enum.swift"; sourceTree = "<group>"; };
 		86E9BF3E285BA43100EF37EA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterViewViewModel.swift; sourceTree = "<group>"; };
+		86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArcCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
 				86E9BF3A285BA22E00EF37EA /* DismissButton.swift */,
 				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
+				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
 				8631C270285A730D00625E39 /* StopWatchButton.swift */,
 				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
 				8631C262285A698F00625E39 /* Assets.xcassets */,
@@ -175,6 +178,7 @@
 				86E9BF41285C48CF00EF37EA /* PageCounterViewViewModel.swift in Sources */,
 				8631C261285A698E00625E39 /* StopWatchView.swift in Sources */,
 				86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */,
+				86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* TemporaryView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,

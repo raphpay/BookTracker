@@ -24,41 +24,21 @@ struct PageCounterView: View {
                     .font(.title)
                     .bold()
                 
-                ZStack {
-                    Circle()
-                        .trim(from: 0, to: CGFloat(viewModel.maximumCompletionAmount))
-                        .stroke(Color.ui.darkBlueGray.opacity(0.5), lineWidth: 20)
-                        .frame(width: 200, height: 200)
-                        .rotationEffect(.degrees(180))
-                    
-                    Circle()
-                        .trim(from: 0, to: CGFloat(viewModel.completionAmount))
-                        .stroke(Color.ui.orchid, lineWidth: 20)
-                        .frame(width: 200, height: 200)
-                        .rotationEffect(.degrees(180))
-                }
+                ProgressArcCircle(completionAmount: $viewModel.completionAmount)
+                    .frame(width: 200, height: 200)
+                
                 
                 HStack(spacing: 30) {
-                    Button {
+                    StepperButton(systemName: SFSymbols.minusCircle.rawValue) {
                         viewModel.decrementProgress()
-                    } label: {
-                        Image(systemName: SFSymbols.minusCircle.rawValue)
-                            .font(.title)
-                            .frame(width: 35, height: 35)
-                            .foregroundColor(.ui.darkBlueGray)
                     }
 
                     Text("Page \(Int(viewModel.pagesRead)) over \(Int(viewModel.totalPages))")
                         .font(.title2)
                         .bold()
                     
-                    Button {
+                    StepperButton(systemName: SFSymbols.plusCircle.rawValue) {
                         viewModel.incrementProgress()
-                    } label: {
-                        Image(systemName: SFSymbols.plusCircle.rawValue)
-                            .font(.title)
-                            .frame(width: 35, height: 35)
-                            .foregroundColor(.ui.darkBlueGray)
                     }
                 }
                 
@@ -71,5 +51,22 @@ struct PageCounterView: View {
 struct PageCounterView_Previews: PreviewProvider {
     static var previews: some View {
         PageCounterView()
+    }
+}
+
+struct StepperButton: View {
+    
+    var systemName: String
+    var action: (() -> Void)
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Image(systemName: systemName)
+                .font(.title)
+                .frame(width: 35, height: 35)
+                .foregroundColor(.ui.darkBlueGray)
+        }
     }
 }
