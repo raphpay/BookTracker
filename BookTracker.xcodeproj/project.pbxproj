@@ -15,6 +15,7 @@
 		8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26E285A6D7800625E39 /* ProgressCircle.swift */; };
 		8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C270285A730D00625E39 /* StopWatchButton.swift */; };
 		8631C273285A741100625E39 /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C272285A741100625E39 /* Colors+Ext.swift */; };
+		86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CD9285C971E00978A6D /* ViewRouter.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF36285BA18B00EF37EA /* PageCounterView.swift */; };
 		86E9BF39285BA19C00EF37EA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF38285BA19C00EF37EA /* HomeView.swift */; };
@@ -36,6 +37,7 @@
 		8631C26E285A6D7800625E39 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		8631C270285A730D00625E39 /* StopWatchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchButton.swift; sourceTree = "<group>"; };
 		8631C272285A741100625E39 /* Colors+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Ext.swift"; sourceTree = "<group>"; };
+		86802CD9285C971E00978A6D /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86E9BF36285BA18B00EF37EA /* PageCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterView.swift; sourceTree = "<group>"; };
 		86E9BF38285BA19C00EF37EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				86E9BF49285C4B8400EF37EA /* Utils */,
 				86E9BF44285C4B5100EF37EA /* Support */,
 				8631C264285A698F00625E39 /* Preview Content */,
+				86802CD9285C971E00978A6D /* ViewRouter.swift */,
 			);
 			path = BookTracker;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */,
 				86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
+				86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* HomeView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				86E9BF4D285C796E00EF37EA /* TabBar.swift in Sources */,

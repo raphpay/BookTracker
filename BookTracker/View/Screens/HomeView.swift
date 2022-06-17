@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @StateObject var viewRouter: ViewRouter
     @State var showSheet: Bool = false
     
     var body: some View {
@@ -22,11 +23,19 @@ struct HomeView: View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-                Text("Home")
+                switch viewRouter.currentPage {
+                case .home:
+                    Text("Home")
+                case .stopwatch:
+                    Text("Stopwatch")
+                case .more:
+                    Text("More")
+                }
                 Spacer()
                 
                 HStack {
-                    TabBarIcon(width: geometry.size.width/3, height: geometry.size.height/28,
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .home,
+                        width: geometry.size.width/3, height: geometry.size.height/28,
                                icon: SFSymbols.home.rawValue, title: "Home")
                     
                     ZStack {
@@ -43,7 +52,8 @@ struct HomeView: View {
                     }
                     .offset(y: -geometry.size.height/8/2)
                     
-                    TabBarIcon(width: geometry.size.width/3, height: geometry.size.height/28,
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .more,
+                               width: geometry.size.width/3, height: geometry.size.height/28,
                                icon: SFSymbols.more.rawValue, title: "More")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
@@ -56,25 +66,32 @@ struct HomeView: View {
 
 struct TemporaryView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewRouter: ViewRouter())
     }
 }
 
 struct TabBarIcon: View {
     
+    @StateObject var viewRouter: ViewRouter
+    let assignedPage: Page
     let width, height: CGFloat
     let icon, title: String
     
     var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
-                .padding(.top, 10)
-            Text(title)
-                .font(.footnote)
-            Spacer()
+        Button {
+            viewRouter.currentPage = assignedPage
+        } label: {
+            VStack {
+                Image(systemName: icon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: width, height: height)
+                    .padding(.top, 10)
+                Text(title)
+                    .font(.footnote)
+                Spacer()
+            }
+            .foregroundColor(.black)
         }
     }
 }

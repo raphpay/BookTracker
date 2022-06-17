@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct BookTrackerApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(viewRouter: viewRouter)
         }
     }
 }
