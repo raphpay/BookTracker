@@ -10,10 +10,11 @@ import SwiftUI
 struct PageCounterView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var completionAmount = 0.0
+    @State private var completionAmount: Float = 0.0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let totalPages: Float = 200
+    let maximumCompletionAmount: Float = 0.5
     @State var pagesRead: Float = 0
     @State var progress: Float = 0
 
@@ -32,13 +33,13 @@ struct PageCounterView: View {
                 
                 ZStack {
                     Circle()
-                        .trim(from: 0, to: 0.5)
+                        .trim(from: 0, to: CGFloat(maximumCompletionAmount))
                         .stroke(Color.ui.darkBlueGray.opacity(0.5), lineWidth: 20)
                         .frame(width: 200, height: 200)
                         .rotationEffect(.degrees(180))
                     
                     Circle()
-                        .trim(from: 0, to: completionAmount)
+                        .trim(from: 0, to: CGFloat(completionAmount))
                         .stroke(Color.ui.orchid, lineWidth: 20)
                         .frame(width: 200, height: 200)
                         .rotationEffect(.degrees(180))
@@ -74,18 +75,25 @@ struct PageCounterView: View {
     }
     
     func incrementProgress() {
-        pagesRead += 1
-        calculateProgress()
+        if (pagesRead < totalPages) {
+            pagesRead += 1
+            calculateProgress()
+        }
     }
     
     func decrementProgress() {
-        pagesRead -= 1
-        calculateProgress()
+        if (pagesRead > 0) {
+            pagesRead -= 1
+            calculateProgress()
+        }
     }
     
     func calculateProgress() {
         let percentage = pagesRead/totalPages * 100
         progress = round(percentage * 10) / 10.0
+        withAnimation {
+            completionAmount = maximumCompletionAmount * pagesRead / totalPages
+        }
     }
 }
 
