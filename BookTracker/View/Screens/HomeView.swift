@@ -28,14 +28,28 @@ struct HomeView: View {
                 HStack {
                     TabBarIcon(width: geometry.size.width/3, height: geometry.size.height/28,
                                icon: SFSymbols.home.rawValue, title: "Home")
-                    TabBarIcon(width: geometry.size.width/3, height: geometry.size.height/28,
-                               icon: SFSymbols.stopwatch.rawValue, title: "Reading")
+                    
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: geometry.size.width/7, height: geometry.size.width/7)
+                            .shadow(radius: 4)
+                        
+                        Image(systemName: SFSymbols.stopwatch.rawValue)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: (geometry.size.width/7)-18 , height: (geometry.size.width/7)-18)
+                            .foregroundColor(.ui.darkBlueGray)
+                    }
+                    .offset(y: -geometry.size.height/8/2)
+                    
                     TabBarIcon(width: geometry.size.width/3, height: geometry.size.height/28,
                                icon: SFSymbols.more.rawValue, title: "More")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
-                .background(Color.black.opacity(0.5)).cornerRadius(10)
+                .background(Color.black.opacity(0.2).shadow(radius: 2))
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
