@@ -11,4 +11,7 @@ enum SFSymbols: String {
     case close = "xmark"
     case plusCircle = "plus.circle"
     case minusCircle = "minus.circle"
+    case home = "house"
+    case stopwatch = "stopwatch"
+    case more = "ellipsis.bubble"
 }
