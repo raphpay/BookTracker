@@ -11,6 +11,9 @@ import SwiftUI
 class HomeViewViewModel: ObservableObject {
     @Published var selectedTag: Int = 1
     @Published var dragOffset : CGFloat = .zero
+    @Published var selectedBook: BookCategoryName = .reading
+    @Published var selectedColor: Color = .orange
+    @Published var tabWidth: CGFloat = 0
 }
 
 extension HomeViewViewModel {

@@ -21,6 +21,7 @@
 		86802CE0285C9AE100978A6D /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDF285C9AE100978A6D /* MoreView.swift */; };
 		86802CE6285CA5DE00978A6D /* BookCategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */; };
 		86802CE8285CA64C00978A6D /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */; };
+		86A0325A28642DDD00AF940E /* BookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0325928642DDD00AF940E /* BookCategory.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF36285BA18B00EF37EA /* PageCounterView.swift */; };
 		86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF38285BA19C00EF37EA /* ContentView.swift */; };
@@ -48,6 +49,7 @@
 		86802CDF285C9AE100978A6D /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCategoryButton.swift; sourceTree = "<group>"; };
 		86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		86A0325928642DDD00AF940E /* BookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCategory.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86E9BF36285BA18B00EF37EA /* PageCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterView.swift; sourceTree = "<group>"; };
 		86E9BF38285BA19C00EF37EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		8631C25D285A698E00625E39 /* BookTracker */ = {
 			isa = PBXGroup;
 			children = (
+				86A0325B28642DE500AF940E /* New Group */,
 				86E9BF45285C4B5C00EF37EA /* View */,
 				86E9BF48285C4B7C00EF37EA /* ViewModel */,
 				86E9BF49285C4B8400EF37EA /* Utils */,
@@ -104,6 +107,14 @@
 				8631C265285A698F00625E39 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86A0325B28642DE500AF940E /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				86A0325928642DDD00AF940E /* BookCategory.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		86E9BF44285C4B5100EF37EA /* Support */ = {
@@ -278,6 +289,7 @@
 				86E9BF3D285BA24900EF37EA /* SFSymbols-Enum.swift in Sources */,
 				86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */,
 				8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */,
+				86A0325A28642DDD00AF940E /* BookCategory.swift in Sources */,
 				86E9BF3F285BA43100EF37EA /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
