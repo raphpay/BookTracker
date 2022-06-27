@@ -13,22 +13,29 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Book Tracker")
+                    .font(.title.weight(.semibold))
+                Spacer()
+                Button {
+                    viewModel.showAddBookSheet.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.title2.weight(.semibold))
+                }
+                .foregroundStyle(.primary)
+
+            }
+            .padding(.horizontal)
+            
             textTabBar
             
-            TabView(selection: $viewModel.selectedId) {
-                ForEach(bookCategories) { category in
-                    Text(category.text).tag(category.id)
-                }
-            }
-            .onReceive(viewModel.$selectedId, perform: { value in
-                viewModel.setStates(from: value)
-            })
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .tabViewStyle(PageTabViewStyle())
-            .frame(maxHeight: 350)
-            .background(Color.red)
+            paginationTab
             
             Spacer()
+        }
+        .sheet(isPresented: $viewModel.showAddBookSheet) {
+            AddBookView()
         }
     }
     
@@ -50,6 +57,21 @@ struct HomeView: View {
         }
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
         .background(rectangleBackground)
+    }
+    
+    var paginationTab: some View {
+        TabView(selection: $viewModel.selectedId) {
+            ForEach(bookCategories) { category in
+                Text(category.text).tag(category.id)
+            }
+        }
+        .onReceive(viewModel.$selectedId, perform: { value in
+            viewModel.setStates(from: value)
+        })
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .tabViewStyle(PageTabViewStyle())
+        .frame(maxHeight: 350)
+        .background(Color.red)
     }
     
     var tabGeometryReader: some View {

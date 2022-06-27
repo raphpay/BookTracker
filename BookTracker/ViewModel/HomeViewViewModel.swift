@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 
 class HomeViewViewModel: ObservableObject {
-    @Published var selectedBook: BookCategoryName = .reading
+    @Published var selectedBook: BookCategory.BookCategoryType = .reading
     @Published var selectedColor: Color = .orange
     @Published var tabWidth: CGFloat = 0
     @Published var selectedId = bookCategories[1].id
+    @Published var showAddBookSheet: Bool = false
 }
 
 extension HomeViewViewModel {

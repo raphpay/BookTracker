@@ -11,7 +11,22 @@ struct BookCategory: Identifiable {
     let id = UUID()
     let text: String
     let color: Color
-    let categoryName: BookCategoryName
+    let categoryName: BookCategoryType
+    
+    enum BookCategoryType: String {
+        case toRead, reading, finished
+        
+        var name: String {
+            switch self {
+            case .toRead:
+                return "To read"
+            case .reading:
+                return "Reading"
+            case .finished:
+                return "Finished"
+            }
+        }
+    }
 }
 
 var bookCategories = [
@@ -20,9 +35,12 @@ var bookCategories = [
     BookCategory(text: "Finished", color: .blue, categoryName: .finished),
 ]
 
-enum BookCategoryName: String {
-    case toRead, reading, finished
-}
+var bookCategoryTypes = [
+    BookCategory.BookCategoryType.toRead,
+    BookCategory.BookCategoryType.reading,
+    BookCategory.BookCategoryType.finished,
+]
+
 
 struct TabWidthPreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
