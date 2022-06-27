@@ -24,7 +24,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 
-                TabBar(viewRouter: viewRouter, geometryWidth: geometry.size.width, geometryHeight: geometry.size.height)
+                NavigationTabBar(viewRouter: viewRouter, geometryWidth: geometry.size.width, geometryHeight: geometry.size.height)
             }
             .edgesIgnoringSafeArea(.bottom)
         }

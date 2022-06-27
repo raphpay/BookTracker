@@ -1,5 +1,5 @@
 //
-//  TabBar.swift
+//  NavigationTabBar.swift
 //  BookTracker
 //
 //  Created by Raphaël Payet on 17/06/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabBar: View {
+struct NavigationTabBar: View {
     
     @StateObject var viewRouter: ViewRouter
     let geometryWidth, geometryHeight: CGFloat
@@ -43,6 +43,6 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar(viewRouter: ViewRouter(), geometryWidth: 400, geometryHeight: 600)
+        NavigationTabBar(viewRouter: ViewRouter(), geometryWidth: 400, geometryHeight: 600)
     }
 }

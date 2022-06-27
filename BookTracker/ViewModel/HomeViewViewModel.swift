@@ -9,60 +9,26 @@ import Foundation
 import SwiftUI
 
 class HomeViewViewModel: ObservableObject {
-    @Published var selectedTag: Int = 1
-    @Published var dragOffset : CGFloat = .zero
     @Published var selectedBook: BookCategoryName = .reading
     @Published var selectedColor: Color = .orange
     @Published var tabWidth: CGFloat = 0
+    @Published var selectedId = bookCategories[1].id
 }
 
 extension HomeViewViewModel {
-    func changeTag(tag: Int, width: CGFloat) {
-        withAnimation {
-            selectedTag = tag
-            changeOffset(width: width)
+    func setStates(from id: UUID) {
+        guard let category = bookCategories.first(where: { $0.id == id}) else { return }
+        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+            self.selectedBook = category.categoryName
+            self.selectedColor = category.color
         }
     }
     
-    func changeOffset(width: CGFloat) {
-        withAnimation {
-            switch selectedTag {
-            case 0:
-                dragOffset = width / 3 + 16
-            case 1:
-                dragOffset = 0
-            case 2:
-                dragOffset = -width / 3 - 16
-            default:
-                dragOffset = 0;
-            }
+    func setStates(from category: BookCategory) {
+        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+            selectedBook = category.categoryName
+            selectedColor = category.color
+            selectedId = category.id
         }
-    }
-    
-    func dragGestureEnded(xTranslation: CGFloat, screenWidth: CGFloat) {
-        withAnimation(.spring()) {
-            guard abs(xTranslation) > screenWidth/3 else {
-                changeTag(tag: selectedTag, width: screenWidth)
-                return
-            }
-            
-            if xTranslation > 0 {
-                if selectedTag >= 0 {
-                    changeTag(tag: selectedTag - 1, width: screenWidth)
-                } else {
-                    changeTag(tag: 0, width: screenWidth)
-                }
-            } else if xTranslation < 0 {
-                if selectedTag <= 2 {
-                    changeTag(tag: selectedTag + 1, width: screenWidth)
-                } else {
-                    changeTag(tag: 2, width: screenWidth)
-                }
-            }
-        }
-    }
-    
-    func dragTranslationChanged(value: CGFloat) {
-        dragOffset = value
     }
 }

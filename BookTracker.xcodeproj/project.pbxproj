@@ -30,7 +30,7 @@
 		86E9BF3F285BA43100EF37EA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3E285BA43100EF37EA /* Background.swift */; };
 		86E9BF41285C48CF00EF37EA /* PageCounterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */; };
 		86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */; };
-		86E9BF4D285C796E00EF37EA /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF4C285C796E00EF37EA /* TabBar.swift */; };
+		86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF4C285C796E00EF37EA /* NavigationTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +58,7 @@
 		86E9BF3E285BA43100EF37EA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterViewViewModel.swift; sourceTree = "<group>"; };
 		86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArcCircle.swift; sourceTree = "<group>"; };
-		86E9BF4C285C796E00EF37EA /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		86E9BF4C285C796E00EF37EA /* NavigationTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 		86E9BF47285C4B7000EF37EA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				86E9BF4C285C796E00EF37EA /* TabBar.swift */,
+				86E9BF4C285C796E00EF37EA /* NavigationTabBar.swift */,
 				86802CDB285C994B00978A6D /* TabBarIcon.swift */,
 				86E9BF3E285BA43100EF37EA /* Background.swift */,
 				86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */,
@@ -282,7 +282,7 @@
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
-				86E9BF4D285C796E00EF37EA /* TabBar.swift in Sources */,
+				86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */,
 				86802CE6285CA5DE00978A6D /* BookCategoryButton.swift in Sources */,
 				86802CE0285C9AE100978A6D /* MoreView.swift in Sources */,
 				8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */,

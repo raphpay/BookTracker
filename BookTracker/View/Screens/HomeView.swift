@@ -15,26 +15,36 @@ struct HomeView: View {
         VStack {
             textTabBar
             
+            TabView(selection: $viewModel.selectedId) {
+                ForEach(bookCategories) { category in
+                    Text(category.text).tag(category.id)
+                }
+            }
+            .onReceive(viewModel.$selectedId, perform: { value in
+                viewModel.setStates(from: value)
+            })
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .tabViewStyle(PageTabViewStyle())
+            .frame(maxHeight: 350)
+            .background(Color.red)
+            
             Spacer()
         }
     }
     
     var textTabBar: some View {
         HStack {
-            ForEach(bookCategories) { book in
+            ForEach(bookCategories) { category in
                 Button {
-                    withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                        viewModel.selectedBook = book.categoryName
-                        viewModel.selectedColor = book.color
-                    }
+                    viewModel.setStates(from: category)
                 } label: {
-                    Text(book.text)
+                    Text(category.text)
                         .font(.title2.weight(.semibold))
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 44)
-                .foregroundStyle(viewModel.selectedBook == book.categoryName ? .primary : .secondary)
-                .blendMode(viewModel.selectedBook == book.categoryName ? .overlay : .normal)
+                .foregroundStyle(viewModel.selectedBook == category.categoryName ? .primary : .secondary)
+                .blendMode(viewModel.selectedBook == category.categoryName ? .overlay : .normal)
                 .overlay(tabGeometryReader)
             }
         }
