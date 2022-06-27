@@ -11,6 +11,7 @@ struct NavigationTabBar: View {
     
     @StateObject var viewRouter: ViewRouter
     let geometryWidth, geometryHeight: CGFloat
+    @Binding var showSheet: Bool
     
     var body: some View {
         HStack {
@@ -18,19 +19,7 @@ struct NavigationTabBar: View {
                 width: geometryWidth/3, height: geometryHeight/28,
                        icon: SFSymbols.home.rawValue, title: "Home")
             
-            ZStack {
-                Circle()
-                    .foregroundColor(.white)
-                    .frame(width: geometryWidth/7, height: geometryWidth/7)
-                    .shadow(radius: 4)
-                
-                Image(systemName: SFSymbols.stopwatch.rawValue)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: (geometryWidth/7)-18 , height: (geometryWidth/7)-18)
-                    .foregroundColor(.ui.darkBlueGray)
-            }
-            .offset(y: -geometryHeight/8/2)
+            stopwatchIcon
             
             TabBarIcon(viewRouter: viewRouter, assignedPage: .more,
                        width: geometryWidth/3, height: geometryHeight/28,
@@ -39,10 +28,32 @@ struct NavigationTabBar: View {
         .frame(width: geometryWidth, height: geometryHeight/8)
         .background(Color.black.opacity(0.2).shadow(radius: 2))
     }
+    
+    var stopwatchIcon: some View {
+        ZStack {
+            Circle()
+                .foregroundColor(.white)
+                .frame(width: geometryWidth/7, height: geometryWidth/7)
+                .shadow(radius: 4)
+            
+            Image(systemName: SFSymbols.stopwatch.rawValue)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: (geometryWidth/7)-18 , height: (geometryWidth/7)-18)
+                .foregroundColor(.ui.darkBlueGray)
+        }
+        .offset(y: -geometryHeight/8/2)
+        .onTapGesture {
+            showSheet.toggle()
+        }
+    }
 }
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationTabBar(viewRouter: ViewRouter(), geometryWidth: 400, geometryHeight: 600)
+        NavigationTabBar(viewRouter: ViewRouter(),
+                         geometryWidth: 400, geometryHeight: 600,
+                         showSheet: .constant(false)
+        )
     }
 }

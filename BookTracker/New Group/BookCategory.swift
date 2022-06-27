@@ -11,34 +11,35 @@ struct BookCategory: Identifiable {
     let id = UUID()
     let text: String
     let color: Color
-    let categoryName: BookCategoryType
+    let categoryName: ReadingCategory
+    var books: [Book] = []
+}
+
+enum ReadingCategory: String {
+    case toRead, reading, finished
     
-    enum BookCategoryType: String {
-        case toRead, reading, finished
-        
-        var name: String {
-            switch self {
-            case .toRead:
-                return "To read"
-            case .reading:
-                return "Reading"
-            case .finished:
-                return "Finished"
-            }
+    var name: String {
+        switch self {
+        case .toRead:
+            return "To read"
+        case .reading:
+            return "Reading"
+        case .finished:
+            return "Finished"
         }
     }
 }
 
 var bookCategories = [
-    BookCategory(text: "To read", color: .red, categoryName: .toRead),
-    BookCategory(text: "Reading", color: .orange, categoryName: .reading),
-    BookCategory(text: "Finished", color: .blue, categoryName: .finished),
+    BookCategory(text: "To read", color: .red, categoryName: .toRead, books: toReadBooks),
+    BookCategory(text: "Reading", color: .orange, categoryName: .reading, books: readingBooks),
+    BookCategory(text: "Finished", color: .blue, categoryName: .finished, books: finishedBooks),
 ]
 
 var bookCategoryTypes = [
-    BookCategory.BookCategoryType.toRead,
-    BookCategory.BookCategoryType.reading,
-    BookCategory.BookCategoryType.finished,
+    ReadingCategory.toRead,
+    ReadingCategory.reading,
+    ReadingCategory.finished,
 ]
 
 

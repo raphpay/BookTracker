@@ -24,6 +24,7 @@
 		86A0325A28642DDD00AF940E /* BookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0325928642DDD00AF940E /* BookCategory.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
+		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
 		86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF36285BA18B00EF37EA /* PageCounterView.swift */; };
 		86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF38285BA19C00EF37EA /* ContentView.swift */; };
 		86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3A285BA22E00EF37EA /* DismissButton.swift */; };
@@ -53,6 +54,7 @@
 		86A0325928642DDD00AF940E /* BookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCategory.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86CD022C286A0CCA006A8CF6 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		86E9BF36285BA18B00EF37EA /* PageCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterView.swift; sourceTree = "<group>"; };
 		86E9BF38285BA19C00EF37EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86E9BF3A285BA22E00EF37EA /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				86A0325928642DDD00AF940E /* BookCategory.swift */,
+				86CD022E286A109B006A8CF6 /* Book.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */,
 				86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
+				86CD022F286A109B006A8CF6 /* Book.swift in Sources */,
 				86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */,
 				86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */,
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,

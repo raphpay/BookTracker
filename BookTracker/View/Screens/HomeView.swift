@@ -13,20 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Book Tracker")
-                    .font(.title.weight(.semibold))
-                Spacer()
-                Button {
-                    viewModel.showAddBookSheet.toggle()
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title2.weight(.semibold))
-                }
-                .foregroundStyle(.primary)
-
-            }
-            .padding(.horizontal)
+            statusBar
             
             textTabBar
             
@@ -37,6 +24,23 @@ struct HomeView: View {
         .sheet(isPresented: $viewModel.showAddBookSheet) {
             AddBookView()
         }
+    }
+    
+    var statusBar: some View {
+        HStack {
+            Text("Book Tracker")
+                .font(.title.weight(.semibold))
+            Spacer()
+            Button {
+                viewModel.showAddBookSheet.toggle()
+            } label: {
+                Image(systemName: "plus")
+                    .font(.title2.weight(.semibold))
+            }
+            .foregroundStyle(.primary)
+
+        }
+        .padding(.horizontal)
     }
     
     var textTabBar: some View {
@@ -62,7 +66,11 @@ struct HomeView: View {
     var paginationTab: some View {
         TabView(selection: $viewModel.selectedId) {
             ForEach(bookCategories) { category in
-                Text(category.text).tag(category.id)
+                VStack {
+                    ForEach(category.books) { book in
+                        Text(book.title)
+                    }
+                }
             }
         }
         .onReceive(viewModel.$selectedId, perform: { value in

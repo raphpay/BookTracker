@@ -11,7 +11,7 @@ struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
     @State var bookTitle: String = ""
-    @State var selectedBookCategory: BookCategory.BookCategoryType = .toRead
+    @State var selectedBookCategory: ReadingCategory = .toRead
     
     var body: some View {
         Form {

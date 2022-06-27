@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class HomeViewViewModel: ObservableObject {
-    @Published var selectedBook: BookCategory.BookCategoryType = .reading
+    @Published var selectedBook: ReadingCategory = .reading
     @Published var selectedColor: Color = .orange
     @Published var tabWidth: CGFloat = 0
     @Published var selectedId = bookCategories[1].id

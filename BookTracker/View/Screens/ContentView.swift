@@ -24,9 +24,15 @@ struct ContentView: View {
                 }
                 Spacer()
                 
-                NavigationTabBar(viewRouter: viewRouter, geometryWidth: geometry.size.width, geometryHeight: geometry.size.height)
+                NavigationTabBar(viewRouter: viewRouter,
+                                 geometryWidth: geometry.size.width,
+                                 geometryHeight: geometry.size.height,
+                                 showSheet: $showSheet)
             }
             .edgesIgnoringSafeArea(.bottom)
+        }
+        .sheet(isPresented: $showSheet) {
+            StopWatchView()
         }
     }
 }
