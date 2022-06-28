@@ -79,7 +79,6 @@ struct HomeView: View {
         .tabViewStyle(.page(indexDisplayMode: .never))
         .tabViewStyle(PageTabViewStyle())
         .frame(maxHeight: 350)
-        .background(Color.red)
     }
     
     var tabGeometryReader: some View {
