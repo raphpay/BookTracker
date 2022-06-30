@@ -25,7 +25,7 @@ extension HomeViewViewModel {
         }
     }
     
-    func setStates(from category: BookCategory) {
+    func setStates(from category: BookCategoryMock) {
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
             selectedBook = category.categoryName
             selectedColor = category.color

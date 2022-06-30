@@ -18,7 +18,7 @@ class NetworkService {
         guard let url = URL(string: "\(baseURL)\(queries)") else { return }
         AF.request(url)
             .validate()
-            .responseDecodable(of: DecodableBookVolume.self) { response in
+            .responseDecodable(of: BookVolume.self) { response in
                 guard let volume = response.value else { return }
                 print(volume.books[0])
             }

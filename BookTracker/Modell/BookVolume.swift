@@ -1,5 +1,5 @@
 //
-//  DecodableBook.swift
+//  BookVolume.swift
 //  BookTracker
 //
 //  Created by Raphaël Payet on 28/06/2022.
@@ -8,40 +8,37 @@
 import Foundation
 
 // TODO: Rename this file and remove the BookCategory
-struct DecodableBookVolume: Decodable {
-    let kind: String
-    let totalItems: Int
-    let books: [DecodableBook]
+struct BookVolume: Decodable {
+    let books: [BookItem]
     
     enum CodingKeys: String, CodingKey {
-        case kind
-        case totalItems
         case books = "items"
     }
 }
 
-struct DecodableBook: Decodable {
+struct BookItem: Decodable {
     let id: String
     let link: String
-    let volumeInfo: VolumeInfo
+    let bookInfo: BookInfo
     
     enum CodingKeys: String, CodingKey {
         case id
         case link = "selfLink"
-        case volumeInfo
+        case bookInfo = "volumeInfo"
     }
 }
 
-struct VolumeInfo: Decodable {
+struct BookInfo: Decodable {
     let title: String
-    let subtitle: String?
     let authors: [String]?
-    let publishedDate: String?
-    let pageCount: Int?
-    let language: String?
+    let subtitle: String?
     let description: String?
+    let pageCount: Int?
+    let publishedDate: String?
+    let language: String?
     let categories: [String]?
     let imageLinks: ImageLinks?
+    let industryIdentifiers: [IndustryIdentifiers]?
 }
 
 struct ImageLinks: Decodable {
@@ -51,4 +48,9 @@ struct ImageLinks: Decodable {
     let medium: String?
     let large: String?
     let extraLarge: String?
+}
+
+struct IndustryIdentifiers: Decodable {
+    let type: String
+    let identifier: String
 }

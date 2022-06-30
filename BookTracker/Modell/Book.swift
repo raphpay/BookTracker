@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book: Identifiable {
+struct BookMock: Identifiable {
     let id = UUID()
     let title: String
     let cover: String
@@ -15,15 +15,15 @@ struct Book: Identifiable {
 }
 
 var toReadBooks = [
-    Book(title: "1984", cover: "Book-Cover", category: .toRead),
+    BookMock(title: "1984", cover: "Book-Cover", category: .toRead),
 ]
 
 var readingBooks = [
-    Book(title: "Hyper Focus", cover: "Book-Cover", category: .reading),
-    Book(title: "Parapente", cover: "Book-Cover", category: .toRead),
+    BookMock(title: "Hyper Focus", cover: "Book-Cover", category: .reading),
+    BookMock(title: "Parapente", cover: "Book-Cover", category: .toRead),
 ]
 
 var finishedBooks = [
-    Book(title: "Labyrinthes", cover: "Book-Cover", category: .finished),
-    Book(title: "Les amants du Mont-Blanc", cover: "Book-Cover", category: .finished),
+    BookMock(title: "Labyrinthes", cover: "Book-Cover", category: .finished),
+    BookMock(title: "Les amants du Mont-Blanc", cover: "Book-Cover", category: .finished),
 ]

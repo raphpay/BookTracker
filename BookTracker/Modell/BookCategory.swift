@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BookCategory: Identifiable {
+struct BookCategoryMock: Identifiable {
     let id = UUID()
     let text: String
     let color: Color
     let categoryName: ReadingCategory
-    var books: [Book] = []
+    var books: [BookMock] = []
 }
 
 enum ReadingCategory: String {
@@ -31,9 +31,9 @@ enum ReadingCategory: String {
 }
 
 var bookCategories = [
-    BookCategory(text: "To read", color: .red, categoryName: .toRead, books: toReadBooks),
-    BookCategory(text: "Reading", color: .orange, categoryName: .reading, books: readingBooks),
-    BookCategory(text: "Finished", color: .blue, categoryName: .finished, books: finishedBooks),
+    BookCategoryMock(text: "To read", color: .red, categoryName: .toRead, books: toReadBooks),
+    BookCategoryMock(text: "Reading", color: .orange, categoryName: .reading, books: readingBooks),
+    BookCategoryMock(text: "Finished", color: .blue, categoryName: .finished, books: finishedBooks),
 ]
 
 var bookCategoryTypes = [
