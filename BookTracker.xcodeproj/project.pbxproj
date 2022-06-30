@@ -10,6 +10,7 @@
 		860A06EF286B539400902121 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 860A06EE286B539400902121 /* Alamofire */; };
 		860A06F2286B53E200902121 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F1286B53E200902121 /* NetworkService.swift */; };
 		860A06F4286B548300902121 /* DecodableBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F3286B548300902121 /* DecodableBook.swift */; };
+		860A06F6286C247900902121 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F5286C247900902121 /* RoundedButton.swift */; };
 		8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C25E285A698E00625E39 /* BookTrackerApp.swift */; };
 		8631C261285A698E00625E39 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C260285A698E00625E39 /* StopWatchView.swift */; };
 		8631C263285A698F00625E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C262285A698F00625E39 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		860A06F1286B53E200902121 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		860A06F3286B548300902121 /* DecodableBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableBook.swift; sourceTree = "<group>"; };
+		860A06F5286C247900902121 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		8631C25B285A698E00625E39 /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8631C25E285A698E00625E39 /* BookTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerApp.swift; sourceTree = "<group>"; };
 		8631C260285A698E00625E39 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
 				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
 				8631C270285A730D00625E39 /* StopWatchButton.swift */,
+				860A06F5286C247900902121 /* RoundedButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				86CD022F286A109B006A8CF6 /* Book.swift in Sources */,
 				86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */,
 				86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */,
+				860A06F6286C247900902121 /* RoundedButton.swift in Sources */,
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,

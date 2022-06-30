@@ -7,43 +7,112 @@
 
 import SwiftUI
 
+struct SearchCategory: Identifiable {
+    let id = UUID()
+    let title: String
+    let tag: Int
+    let color: Color
+}
+
+let searchCategories = [
+    SearchCategory(title: "Title", tag: 0, color: .green),
+    SearchCategory(title: "Author", tag: 1, color: .red),
+    SearchCategory(title: "Publisher", tag: 2, color: .blue),
+    SearchCategory(title: "ISBN", tag: 3, color: .purple),
+]
+
 struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
-    @State var bookTitle: String = ""
-    @State var selectedBookCategory: ReadingCategory = .toRead
+    @State var selectedIDs: [Int]       = []
+    @State var titleText: String        = ""
+    @State var authorText: String       = ""
+    @State var publisherText: String    = ""
+    @State var ISBNText: String         = ""
+    @State var showSearchButton: Bool   = false
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Book title", text: $bookTitle)
-                Picker("Please choose a category", selection: $selectedBookCategory) {
-                    ForEach(bookCategoryTypes, id: \.self) {
-                        Text($0.name)
+        VStack {
+            HStack {
+                ForEach(searchCategories) { category in
+                    let isSelected = selectedIDs.contains(where: { $0 == category.tag })
+                    
+                    Button {
+                        withAnimation {
+                            if isSelected {
+                                guard let index = selectedIDs.firstIndex(of: category.tag) else { return }
+                                selectedIDs.remove(at: index)
+                            } else {
+                                selectedIDs.append(category.tag)
+                            }
+                        }
+                    } label: {
+                        Text(category.title)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .background(isSelected ? category.color : .gray.opacity(0.2), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .foregroundColor(isSelected ? .white : .primary)
                     }
                 }
-                .pickerStyle(.menu)
-                Button {
-                    //
-                } label: {
-                    Text("Add book")
-                }
-
             }
+            .padding(.horizontal)
+            
+            if selectedIDs.contains(where: { $0 == 0 }) {
+                TextField("Search by title", text: $titleText, onEditingChanged: { _ in
+                    animateShowButton()
+                })
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+            }
+            
+            if selectedIDs.contains(where: { $0 == 1 }) {
+                TextField("Search by author", text: $authorText, onEditingChanged: { _ in
+                    animateShowButton()
+                })
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+            }
+            
+            
+            if selectedIDs.contains(where: { $0 == 2 }) {
+                TextField("Search by publisher", text: $publisherText, onEditingChanged: { _ in
+                    animateShowButton()
+                })
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+            }
+            
+            
+            if selectedIDs.contains(where: { $0 == 3 }) {
+                TextField("Search by ISBN", text: $ISBNText, onEditingChanged: { _ in
+                    animateShowButton()
+                })
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.numberPad)
+                    .padding()
+            }
+            
+            RoundedButton(title: "Search book", showButton: $showSearchButton) {
+                //
+            }.padding(.top)
+            
+            Spacer()
         }
-        .safeAreaInset(edge: .top, content: {
-            Color.clear
-                .frame(height: 50)
-        })
+        .padding(.top, 65)
         .overlay(
             VStack {
                 DismissButton { dismiss() }
                 Spacer()
             }
-                .frame(maxHeight: .infinity)
-                .padding(.top)
+                .padding(.top, 30)
                 .ignoresSafeArea()
         )
+    }
+    
+    func animateShowButton() {
+        withAnimation {
+            showSearchButton = true
+        }
     }
 }
 

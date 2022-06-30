@@ -21,7 +21,7 @@ struct HomeView: View {
             
             Spacer()
         }
-        .sheet(isPresented: $viewModel.showAddBookSheet) {
+        .fullScreenCover(isPresented: $viewModel.showAddBookSheet) {
             AddBookView()
         }
     }
