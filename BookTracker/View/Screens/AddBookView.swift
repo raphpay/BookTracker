@@ -24,7 +24,7 @@ let searchCategories = [
 struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
-    @State var selectedIDs: [Int]       = []
+    @State var selectedIDs: [Int]       = [0]
     @State var titleText: String        = ""
     @State var authorText: String       = ""
     @State var publisherText: String    = ""
@@ -60,6 +60,8 @@ struct AddBookView: View {
             if selectedIDs.contains(where: { $0 == 0 }) {
                 TextField("Search by title", text: $titleText, onEditingChanged: { _ in
                     animateShowButton()
+                }, onCommit: {
+                    //
                 })
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -68,6 +70,8 @@ struct AddBookView: View {
             if selectedIDs.contains(where: { $0 == 1 }) {
                 TextField("Search by author", text: $authorText, onEditingChanged: { _ in
                     animateShowButton()
+                }, onCommit: {
+                    //
                 })
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -77,6 +81,8 @@ struct AddBookView: View {
             if selectedIDs.contains(where: { $0 == 2 }) {
                 TextField("Search by publisher", text: $publisherText, onEditingChanged: { _ in
                     animateShowButton()
+                }, onCommit: {
+                    //
                 })
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -86,6 +92,8 @@ struct AddBookView: View {
             if selectedIDs.contains(where: { $0 == 3 }) {
                 TextField("Search by ISBN", text: $ISBNText, onEditingChanged: { _ in
                     animateShowButton()
+                }, onCommit: {
+                    //
                 })
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.numberPad)
@@ -93,7 +101,7 @@ struct AddBookView: View {
             }
             
             RoundedButton(title: "Search book", showButton: $showSearchButton) {
-                //
+                searchBook()
             }.padding(.top)
             
             Spacer()
@@ -111,9 +119,48 @@ struct AddBookView: View {
     
     func animateShowButton() {
         withAnimation {
+            // TODO: Animation to revisit
             showSearchButton = true
         }
     }
+    
+    func searchBook() {
+        var query = ""
+        var showTitleQuery = false
+        var showAuthorQuery = false
+        var showPublisherQuery = false
+        
+        if !titleText.isEmpty {
+            query += "\(titleText.prepareForQueries())"
+            showTitleQuery = true
+        }
+        if !authorText.isEmpty {
+            if showTitleQuery {
+                query += "+inauthor:\(authorText.prepareForQueries())"
+            } else {
+                query += "inauthor:\(authorText.prepareForQueries())"
+            }
+            showAuthorQuery = true
+        }
+        if !publisherText.isEmpty {
+            if showTitleQuery || showAuthorQuery {
+                query += "+inpublisher:\(publisherText.prepareForQueries())"
+            } else {
+                query += "inpublisher:\(publisherText.prepareForQueries())"
+            }
+            showPublisherQuery = true
+        }
+        if !ISBNText.isEmpty {
+            if showTitleQuery || showAuthorQuery || showPublisherQuery {
+                query += "+isbn:\(ISBNText.prepareForQueries())"
+            } else {
+                query += "isbn:\(ISBNText.prepareForQueries())"
+            }
+        }
+        
+        NetworkService.shared.fetchBooks(with: query)
+    }
+    
 }
 
 struct AddBookView_Previews: PreviewProvider {

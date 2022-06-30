@@ -34,9 +34,6 @@ struct ContentView: View {
         .sheet(isPresented: $showSheet) {
             StopWatchView()
         }
-        .onAppear {
-            NetworkService.shared.fetchBooksTest()
-        }
     }
 }
 

@@ -13,13 +13,14 @@ class NetworkService {
     
     let baseURL = "https://www.googleapis.com/books/v1/volumes?q="
     
-    func fetchBooksTest() {
-        guard let url = URL(string: "\(baseURL)=hyper+focus") else { return }
+    func fetchBooks(with queries: String) {
+        guard !queries.isEmpty else { return }
+        guard let url = URL(string: "\(baseURL)\(queries)") else { return }
         AF.request(url)
             .validate()
             .responseDecodable(of: DecodableBookVolume.self) { response in
                 guard let volume = response.value else { return }
-                print(volume.books[0].volumeInfo)
+                print(volume.books[0])
             }
     }
 }
