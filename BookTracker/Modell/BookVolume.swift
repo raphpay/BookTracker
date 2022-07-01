@@ -10,13 +10,15 @@ import Foundation
 // TODO: Rename this file and remove the BookCategory
 struct BookVolume: Decodable {
     let books: [BookItem]
+    let items: Int
     
     enum CodingKeys: String, CodingKey {
         case books = "items"
+        case items = "totalItems"
     }
 }
 
-struct BookItem: Decodable {
+struct BookItem: Decodable, Identifiable {
     let id: String
     let link: String
     let bookInfo: BookInfo

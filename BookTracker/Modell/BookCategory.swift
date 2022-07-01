@@ -31,9 +31,9 @@ enum ReadingCategory: String {
 }
 
 var bookCategories = [
-    BookCategoryMock(text: "To read", color: .red, categoryName: .toRead, books: toReadBooks),
-    BookCategoryMock(text: "Reading", color: .orange, categoryName: .reading, books: readingBooks),
-    BookCategoryMock(text: "Finished", color: .blue, categoryName: .finished, books: finishedBooks),
+    BookCategoryMock(text: "To read", color: .red, categoryName: .toRead),
+    BookCategoryMock(text: "Reading", color: .orange, categoryName: .reading),
+    BookCategoryMock(text: "Finished", color: .blue, categoryName: .finished),
 ]
 
 var bookCategoryTypes = [

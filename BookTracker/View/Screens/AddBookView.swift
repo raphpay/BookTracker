@@ -21,18 +21,41 @@ let searchCategories = [
     SearchCategory(title: "ISBN", tag: 3, color: .purple),
 ]
 
+let mockBookInfo = BookInfo(title: "Hyperfocus", authors: nil, subtitle: nil, description: nil, pageCount: nil, publishedDate: nil, language: nil, categories: nil, imageLinks: nil, industryIdentifiers: nil)
+let mockBookInfoAuthor = BookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: nil, description: nil, pageCount: nil, publishedDate: nil, language: nil, categories: nil, imageLinks: nil, industryIdentifiers: nil)
+
+let mockBooks = [
+    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfoAuthor),
+    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfo),
+    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfo),
+    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfo),
+]
+
+var categories: [ReadingCategory] = [.toRead, .reading, .finished]
+
 struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
     @State var selectedIDs: [Int]       = [0]
-    @State var titleText: String        = ""
+    @State var titleText: String        = "Hyperfocus"
     @State var authorText: String       = ""
     @State var publisherText: String    = ""
     @State var ISBNText: String         = ""
     @State var showSearchButton: Bool   = false
+    @State var foundBooks: [BookItem]   = []
+    @State var selectedBookcategory: ReadingCategory = .reading
     
     var body: some View {
-        VStack {
+        ScrollView {
+            
+            Picker("Choose a book category", selection: $selectedBookcategory) {
+                ForEach(categories, id: \.self) { category in
+                    Text(category.name)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            
             HStack {
                 ForEach(searchCategories) { category in
                     let isSelected = selectedIDs.contains(where: { $0 == category.tag })
@@ -104,6 +127,33 @@ struct AddBookView: View {
                 searchBook()
             }.padding(.top)
             
+            VStack {
+                ForEach(foundBooks) { bookItem in
+                    let firstAuthor = bookItem.bookInfo.authors?[0]
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            HStack {
+                                Text(bookItem.bookInfo.title)
+                                if firstAuthor != nil {
+                                    Text("-")
+                                        .foregroundStyle(.secondary)
+                                    Text(firstAuthor ?? "")
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            Spacer()
+                            Image(systemName: "plus")
+                            Image(systemName: "info")
+                        }
+                        Divider()
+                    }
+                    .padding(.bottom)
+                }
+            }
+            .padding()
+            
             Spacer()
         }
         .padding(.top, 65)
@@ -158,7 +208,11 @@ struct AddBookView: View {
             }
         }
         
-        NetworkService.shared.fetchBooks(with: query)
+        NetworkService.shared.fetchBooks(with: query) { books in
+            withAnimation {
+                self.foundBooks = books
+            }
+        }
     }
     
 }
