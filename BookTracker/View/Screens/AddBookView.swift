@@ -46,117 +46,120 @@ struct AddBookView: View {
     @State var selectedBookcategory: ReadingCategory = .reading
     
     var body: some View {
-        ScrollView {
-            
-            Picker("Choose a book category", selection: $selectedBookcategory) {
-                ForEach(categories, id: \.self) { category in
-                    Text(category.name)
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-            
-            HStack {
-                ForEach(searchCategories) { category in
-                    let isSelected = selectedIDs.contains(where: { $0 == category.tag })
-                    
-                    Button {
-                        withAnimation {
-                            if isSelected {
-                                guard let index = selectedIDs.firstIndex(of: category.tag) else { return }
-                                selectedIDs.remove(at: index)
-                            } else {
-                                selectedIDs.append(category.tag)
-                            }
-                        }
-                    } label: {
-                        Text(category.title)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 40)
-                            .background(isSelected ? category.color : .gray.opacity(0.2), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .foregroundColor(isSelected ? .white : .primary)
+        NavigationView {
+            ScrollView {
+                Picker("Choose a book category", selection: $selectedBookcategory) {
+                    ForEach(categories, id: \.self) { category in
+                        Text(category.name)
                     }
                 }
-            }
-            .padding(.horizontal)
-            
-            if selectedIDs.contains(where: { $0 == 0 }) {
-                TextField("Search by title", text: $titleText, onEditingChanged: { _ in
-                    animateShowButton()
-                }, onCommit: {
-                    //
-                })
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-            }
-            
-            if selectedIDs.contains(where: { $0 == 1 }) {
-                TextField("Search by author", text: $authorText, onEditingChanged: { _ in
-                    animateShowButton()
-                }, onCommit: {
-                    //
-                })
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-            }
-            
-            
-            if selectedIDs.contains(where: { $0 == 2 }) {
-                TextField("Search by publisher", text: $publisherText, onEditingChanged: { _ in
-                    animateShowButton()
-                }, onCommit: {
-                    //
-                })
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-            }
-            
-            
-            if selectedIDs.contains(where: { $0 == 3 }) {
-                TextField("Search by ISBN", text: $ISBNText, onEditingChanged: { _ in
-                    animateShowButton()
-                }, onCommit: {
-                    //
-                })
-                    .textFieldStyle(.roundedBorder)
-                    .keyboardType(.numberPad)
-                    .padding()
-            }
-            
-            RoundedButton(title: "Search book", showButton: $showSearchButton) {
-                searchBook()
-            }.padding(.top)
-            
-            VStack {
-                ForEach(foundBooks) { bookItem in
-                    let firstAuthor = bookItem.bookInfo.authors?[0]
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            HStack {
-                                Text(bookItem.bookInfo.title)
-                                if firstAuthor != nil {
-                                    Text("-")
-                                        .foregroundStyle(.secondary)
-                                    Text(firstAuthor ?? "")
-                                        .foregroundStyle(.secondary)
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                HStack {
+                    ForEach(searchCategories) { category in
+                        let isSelected = selectedIDs.contains(where: { $0 == category.tag })
+                        
+                        Button {
+                            withAnimation {
+                                if isSelected {
+                                    guard let index = selectedIDs.firstIndex(of: category.tag) else { return }
+                                    selectedIDs.remove(at: index)
+                                } else {
+                                    selectedIDs.append(category.tag)
                                 }
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            Spacer()
-                            Image(systemName: "plus")
-                            Image(systemName: "info")
+                        } label: {
+                            Text(category.title)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 40)
+                                .background(isSelected ? category.color : .gray.opacity(0.2), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                .foregroundColor(isSelected ? .white : .primary)
                         }
-                        Divider()
                     }
-                    .padding(.bottom)
                 }
+                .padding(.horizontal)
+                
+                if selectedIDs.contains(where: { $0 == 0 }) {
+                    TextField("Search by title", text: $titleText, onEditingChanged: { _ in
+                        animateShowButton()
+                    }, onCommit: {
+                        //
+                    })
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                }
+                
+                if selectedIDs.contains(where: { $0 == 1 }) {
+                    TextField("Search by author", text: $authorText, onEditingChanged: { _ in
+                        animateShowButton()
+                    }, onCommit: {
+                        //
+                    })
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                }
+                
+                
+                if selectedIDs.contains(where: { $0 == 2 }) {
+                    TextField("Search by publisher", text: $publisherText, onEditingChanged: { _ in
+                        animateShowButton()
+                    }, onCommit: {
+                        //
+                    })
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                }
+                
+                
+                if selectedIDs.contains(where: { $0 == 3 }) {
+                    TextField("Search by ISBN", text: $ISBNText, onEditingChanged: { _ in
+                        animateShowButton()
+                    }, onCommit: {
+                        //
+                    })
+                        .textFieldStyle(.roundedBorder)
+                        .keyboardType(.numberPad)
+                        .padding()
+                }
+                
+                RoundedButton(title: "Search book", showButton: $showSearchButton) {
+                    searchBook()
+                }.padding(.top)
+                
+                VStack {
+                    ForEach(foundBooks) { bookItem in
+                        let firstAuthor = bookItem.bookInfo.authors?[0]
+                        
+                        VStack(alignment: .leading) {
+                            HStack {
+                                HStack {
+                                    Text(bookItem.bookInfo.title)
+                                    if firstAuthor != nil {
+                                        Text("-")
+                                            .foregroundStyle(.secondary)
+                                        Text(firstAuthor ?? "")
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                Spacer()
+                                Image(systemName: "plus")
+                                NavigationLink(destination: BookInfoView(bookItem: bookItem)) {
+                                    Image(systemName: "info")
+                                }
+                            }
+                            Divider()
+                        }
+                        .padding(.bottom)
+                    }
+                }
+                .padding()
+                
+                Spacer()
             }
-            .padding()
-            
-            Spacer()
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding(.top, 65)
         .overlay(
             VStack {
                 DismissButton { dismiss() }
@@ -164,7 +167,7 @@ struct AddBookView: View {
             }
                 .padding(.top, 30)
                 .ignoresSafeArea()
-        )
+    )
     }
     
     func animateShowButton() {

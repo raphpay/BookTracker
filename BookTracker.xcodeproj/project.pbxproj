@@ -12,6 +12,7 @@
 		860A06F4286B548300902121 /* BookVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F3286B548300902121 /* BookVolume.swift */; };
 		860A06F6286C247900902121 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F5286C247900902121 /* RoundedButton.swift */; };
 		860A06F8286D69C400902121 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F7286D69C400902121 /* String+Ext.swift */; };
+		860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F9286F0E4C00902121 /* BookInfoView.swift */; };
 		8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C25E285A698E00625E39 /* BookTrackerApp.swift */; };
 		8631C261285A698E00625E39 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C260285A698E00625E39 /* StopWatchView.swift */; };
 		8631C263285A698F00625E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C262285A698F00625E39 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		860A06F3286B548300902121 /* BookVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVolume.swift; sourceTree = "<group>"; };
 		860A06F5286C247900902121 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		860A06F7286D69C400902121 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		860A06F9286F0E4C00902121 /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
 		8631C25B285A698E00625E39 /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8631C25E285A698E00625E39 /* BookTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerApp.swift; sourceTree = "<group>"; };
 		8631C260285A698E00625E39 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				8631C260285A698E00625E39 /* StopWatchView.swift */,
 				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
 				86CD022C286A0CCA006A8CF6 /* AddBookView.swift */,
+				860A06F9286F0E4C00902121 /* BookInfoView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				860A06F6286C247900902121 /* RoundedButton.swift in Sources */,
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
+				860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */,
 				86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */,

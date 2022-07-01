@@ -43,6 +43,9 @@ struct BookInfo: Decodable {
     let industryIdentifiers: [IndustryIdentifiers]?
 }
 
+let bookItemMock = BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)",
+                            bookInfo: BookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: "", description: "", pageCount: 200, publishedDate: "207", language: "en", categories: [], imageLinks: nil, industryIdentifiers: nil))
+
 struct ImageLinks: Decodable {
     let smallThumbnail: String?
     let thumbnail: String?
@@ -52,7 +55,11 @@ struct ImageLinks: Decodable {
     let extraLarge: String?
 }
 
-struct IndustryIdentifiers: Decodable {
+struct IndustryIdentifiers: Decodable, Hashable {
     let type: String
     let identifier: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+    }
 }
