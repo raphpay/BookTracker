@@ -10,19 +10,12 @@ import SwiftUI
 struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
-    @State var selectedIDs: [Int]       = [0]
-    @State var titleText: String        = "Hyperfocus"
-    @State var authorText: String       = ""
-    @State var publisherText: String    = ""
-    @State var ISBNText: String         = ""
-    @State var showSearchButton: Bool   = false
-    @State var foundBooks: [BookItem]   = []
-    @State var selectedLibrary: Library = .reading
+    @StateObject var viewModel = AddBookViewViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView {
-                Picker("Choose a book category", selection: $selectedLibrary) {
+                Picker("Choose a book category", selection: $viewModel.selectedLibrary) {
                     ForEach(Library.allCases, id: \.self) { library in
                         Text(library.name)
                     }
@@ -32,15 +25,15 @@ struct AddBookView: View {
                 
                 HStack {
                     ForEach(searchCategories) { category in
-                        let isSelected = selectedIDs.contains(where: { $0 == category.tag })
+                        let isSelected = viewModel.selectedIDs.contains(where: { $0 == category.tag })
                         
                         Button {
                             withAnimation {
                                 if isSelected {
-                                    guard let index = selectedIDs.firstIndex(of: category.tag) else { return }
-                                    selectedIDs.remove(at: index)
+                                    guard let index = viewModel.selectedIDs.firstIndex(of: category.tag) else { return }
+                                    viewModel.selectedIDs.remove(at: index)
                                 } else {
-                                    selectedIDs.append(category.tag)
+                                    viewModel.selectedIDs.append(category.tag)
                                 }
                             }
                         } label: {
@@ -54,9 +47,9 @@ struct AddBookView: View {
                 }
                 .padding(.horizontal)
                 
-                if selectedIDs.contains(where: { $0 == 0 }) {
-                    TextField("Search by title", text: $titleText, onEditingChanged: { _ in
-                        animateShowButton()
+                if viewModel.selectedIDs.contains(where: { $0 == 0 }) {
+                    TextField("Search by title", text: $viewModel.titleText, onEditingChanged: { _ in
+                        viewModel.animateShowButton()
                     }, onCommit: {
                         //
                     })
@@ -64,20 +57,9 @@ struct AddBookView: View {
                         .padding()
                 }
                 
-                if selectedIDs.contains(where: { $0 == 1 }) {
-                    TextField("Search by author", text: $authorText, onEditingChanged: { _ in
-                        animateShowButton()
-                    }, onCommit: {
-                        //
-                    })
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                }
-                
-                
-                if selectedIDs.contains(where: { $0 == 2 }) {
-                    TextField("Search by publisher", text: $publisherText, onEditingChanged: { _ in
-                        animateShowButton()
+                if viewModel.selectedIDs.contains(where: { $0 == 1 }) {
+                    TextField("Search by author", text: $viewModel.authorText, onEditingChanged: { _ in
+                        viewModel.animateShowButton()
                     }, onCommit: {
                         //
                     })
@@ -86,9 +68,20 @@ struct AddBookView: View {
                 }
                 
                 
-                if selectedIDs.contains(where: { $0 == 3 }) {
-                    TextField("Search by ISBN", text: $ISBNText, onEditingChanged: { _ in
-                        animateShowButton()
+                if viewModel.selectedIDs.contains(where: { $0 == 2 }) {
+                    TextField("Search by publisher", text: $viewModel.publisherText, onEditingChanged: { _ in
+                        viewModel.animateShowButton()
+                    }, onCommit: {
+                        //
+                    })
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                }
+                
+                
+                if viewModel.selectedIDs.contains(where: { $0 == 3 }) {
+                    TextField("Search by ISBN", text: $viewModel.ISBNText, onEditingChanged: { _ in
+                        viewModel.animateShowButton()
                     }, onCommit: {
                         //
                     })
@@ -97,12 +90,12 @@ struct AddBookView: View {
                         .padding()
                 }
                 
-                RoundedButton(title: "Search book", showButton: $showSearchButton) {
-                    searchBook()
+                RoundedButton(title: "Search book", showButton: $viewModel.showSearchButton) {
+                    viewModel.searchBook()
                 }.padding(.top)
                 
                 VStack {
-                    ForEach(foundBooks) { bookItem in
+                    ForEach(viewModel.foundBooks) { bookItem in
                         let firstAuthor = bookItem.bookInfo.authors?[0]
                         
                         VStack(alignment: .leading) {
@@ -142,56 +135,7 @@ struct AddBookView: View {
                 .padding(.top, 30)
                 .ignoresSafeArea()
     )
-    }
-    
-    func animateShowButton() {
-        withAnimation {
-            // TODO: Animation to revisit
-            showSearchButton = true
-        }
-    }
-    
-    func searchBook() {
-        var query = ""
-        var showTitleQuery = false
-        var showAuthorQuery = false
-        var showPublisherQuery = false
-        
-        if !titleText.isEmpty {
-            query += "\(titleText.prepareForQueries())"
-            showTitleQuery = true
-        }
-        if !authorText.isEmpty {
-            if showTitleQuery {
-                query += "+inauthor:\(authorText.prepareForQueries())"
-            } else {
-                query += "inauthor:\(authorText.prepareForQueries())"
-            }
-            showAuthorQuery = true
-        }
-        if !publisherText.isEmpty {
-            if showTitleQuery || showAuthorQuery {
-                query += "+inpublisher:\(publisherText.prepareForQueries())"
-            } else {
-                query += "inpublisher:\(publisherText.prepareForQueries())"
-            }
-            showPublisherQuery = true
-        }
-        if !ISBNText.isEmpty {
-            if showTitleQuery || showAuthorQuery || showPublisherQuery {
-                query += "+isbn:\(ISBNText.prepareForQueries())"
-            } else {
-                query += "isbn:\(ISBNText.prepareForQueries())"
-            }
-        }
-        
-        NetworkService.shared.fetchBooks(with: query) { books in
-            withAnimation {
-                self.foundBooks = books
-            }
-        }
-    }
-    
+    }    
 }
 
 struct AddBookView_Previews: PreviewProvider {

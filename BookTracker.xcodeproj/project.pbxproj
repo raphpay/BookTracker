@@ -14,6 +14,7 @@
 		860A06F8286D69C400902121 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F7286D69C400902121 /* String+Ext.swift */; };
 		860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F9286F0E4C00902121 /* BookInfoView.swift */; };
 		860A07372871DF7100902121 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A07362871DF7100902121 /* SearchCategory.swift */; };
+		860A07392871F0FE00902121 /* AddBookViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A07382871F0FE00902121 /* AddBookViewViewModel.swift */; };
 		8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C25E285A698E00625E39 /* BookTrackerApp.swift */; };
 		8631C261285A698E00625E39 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C260285A698E00625E39 /* StopWatchView.swift */; };
 		8631C263285A698F00625E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C262285A698F00625E39 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		860A06F7286D69C400902121 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		860A06F9286F0E4C00902121 /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
 		860A07362871DF7100902121 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
+		860A07382871F0FE00902121 /* AddBookViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewViewModel.swift; sourceTree = "<group>"; };
 		8631C25B285A698E00625E39 /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8631C25E285A698E00625E39 /* BookTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerApp.swift; sourceTree = "<group>"; };
 		8631C260285A698E00625E39 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				86802CD9285C971E00978A6D /* ViewRouter.swift */,
 				86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */,
+				860A07382871F0FE00902121 /* AddBookViewViewModel.swift */,
 				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
 				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
 			);
@@ -320,6 +323,7 @@
 				860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */,
+				860A07392871F0FE00902121 /* AddBookViewViewModel.swift in Sources */,
 				86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */,
 				86802CE6285CA5DE00978A6D /* BookCategoryButton.swift in Sources */,
 				86802CE0285C9AE100978A6D /* MoreView.swift in Sources */,
