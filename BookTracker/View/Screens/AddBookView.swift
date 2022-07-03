@@ -7,32 +7,6 @@
 
 import SwiftUI
 
-struct SearchCategory: Identifiable {
-    let id = UUID()
-    let title: String
-    let tag: Int
-    let color: Color
-}
-
-let searchCategories = [
-    SearchCategory(title: "Title", tag: 0, color: .green),
-    SearchCategory(title: "Author", tag: 1, color: .red),
-    SearchCategory(title: "Publisher", tag: 2, color: .blue),
-    SearchCategory(title: "ISBN", tag: 3, color: .purple),
-]
-
-let mockBookInfo = BookInfo(title: "Hyperfocus", authors: nil, subtitle: nil, description: nil, pageCount: nil, publishedDate: nil, language: nil, categories: nil, imageLinks: nil, industryIdentifiers: nil)
-let mockBookInfoAuthor = BookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: nil, description: nil, pageCount: nil, publishedDate: nil, language: nil, categories: nil, imageLinks: nil, industryIdentifiers: nil)
-
-let mockBooks = [
-    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfoAuthor),
-    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfo),
-    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfo),
-    BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)", bookInfo: mockBookInfo),
-]
-
-var categories: [ReadingCategory] = [.toRead, .reading, .finished]
-
 struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
@@ -43,14 +17,14 @@ struct AddBookView: View {
     @State var ISBNText: String         = ""
     @State var showSearchButton: Bool   = false
     @State var foundBooks: [BookItem]   = []
-    @State var selectedBookcategory: ReadingCategory = .reading
+    @State var selectedLibrary: Library = .reading
     
     var body: some View {
         NavigationView {
             ScrollView {
-                Picker("Choose a book category", selection: $selectedBookcategory) {
-                    ForEach(categories, id: \.self) { category in
-                        Text(category.name)
+                Picker("Choose a book category", selection: $selectedLibrary) {
+                    ForEach(Library.allCases, id: \.self) { library in
+                        Text(library.name)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())

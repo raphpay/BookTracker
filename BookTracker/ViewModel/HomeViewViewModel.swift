@@ -9,27 +9,27 @@ import Foundation
 import SwiftUI
 
 class HomeViewViewModel: ObservableObject {
-    @Published var selectedBook: ReadingCategory = .reading
+    @Published var selectedLibrary: Library = .reading
     @Published var selectedColor: Color = .orange
     @Published var tabWidth: CGFloat = 0
-    @Published var selectedId = bookCategories[1].id
+    @Published var selectedId = Library.reading.id
     @Published var showAddBookSheet: Bool = false
 }
 
 extension HomeViewViewModel {
-    func setStates(from id: UUID) {
-        guard let category = bookCategories.first(where: { $0.id == id}) else { return }
+    func setStates(from id: String) {
+        guard let library = Library.allCases.first(where: { $0.id == id}) else { return }
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-            self.selectedBook = category.categoryName
-            self.selectedColor = category.color
+            self.selectedLibrary = library
+            self.selectedColor = library.color
         }
     }
     
-    func setStates(from category: BookCategoryMock) {
+    func setStates(from library: Library) {
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-            selectedBook = category.categoryName
-            selectedColor = category.color
-            selectedId = category.id
+            selectedLibrary = library
+            selectedColor = library.color
+            selectedId = library.id
         }
     }
 }

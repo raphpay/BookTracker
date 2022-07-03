@@ -11,19 +11,19 @@ struct BookMock: Identifiable {
     let id = UUID()
     let title: String
     let cover: String
-    var category: ReadingCategory
+    var library: Library
 }
 
 var toReadBooks = [
-    BookMock(title: "1984", cover: "Book-Cover", category: .toRead),
+    BookMock(title: "1984", cover: "Book-Cover", library: .toRead),
 ]
 
 var readingBooks = [
-    BookMock(title: "Hyper Focus", cover: "Book-Cover", category: .reading),
-    BookMock(title: "Parapente", cover: "Book-Cover", category: .toRead),
+    BookMock(title: "Hyper Focus", cover: "Book-Cover", library: .reading),
+    BookMock(title: "Parapente", cover: "Book-Cover", library: .toRead),
 ]
 
 var finishedBooks = [
-    BookMock(title: "Labyrinthes", cover: "Book-Cover", category: .finished),
-    BookMock(title: "Les amants du Mont-Blanc", cover: "Book-Cover", category: .finished),
+    BookMock(title: "Labyrinthes", cover: "Book-Cover", library: .finished),
+    BookMock(title: "Les amants du Mont-Blanc", cover: "Book-Cover", library: .finished),
 ]

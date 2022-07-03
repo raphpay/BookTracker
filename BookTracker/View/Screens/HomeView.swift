@@ -45,17 +45,17 @@ struct HomeView: View {
     
     var textTabBar: some View {
         HStack {
-            ForEach(bookCategories) { category in
+            ForEach(Library.allCases, id: \.self) { library in
                 Button {
-                    viewModel.setStates(from: category)
+                    viewModel.setStates(from: library)
                 } label: {
-                    Text(category.text)
+                    Text(library.name)
                         .font(.title2.weight(.semibold))
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 44)
-                .foregroundStyle(viewModel.selectedBook == category.categoryName ? .primary : .secondary)
-                .blendMode(viewModel.selectedBook == category.categoryName ? .overlay : .normal)
+                .foregroundStyle(viewModel.selectedLibrary == library ? .primary : .secondary)
+                .blendMode(viewModel.selectedLibrary == library ? .overlay : .normal)
                 .overlay(tabGeometryReader)
             }
         }
@@ -65,12 +65,8 @@ struct HomeView: View {
     
     var paginationTab: some View {
         TabView(selection: $viewModel.selectedId) {
-            ForEach(bookCategories) { category in
-                VStack {
-                    ForEach(category.books) { book in
-                        Text(book.title)
-                    }
-                }
+            ForEach(Library.allCases, id: \.self) { library in
+                Text(library.name)
             }
         }
         .onReceive(viewModel.$selectedId, perform: { value in
@@ -93,11 +89,11 @@ struct HomeView: View {
     
     var rectangleBackground: some View {
         HStack {
-            if viewModel.selectedBook == .finished { Spacer() }
+            if viewModel.selectedLibrary == .finished { Spacer() }
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(viewModel.selectedColor)
                 .frame(width: viewModel.tabWidth)
-            if viewModel.selectedBook == .toRead { Spacer() }
+            if viewModel.selectedLibrary == .toRead { Spacer() }
         }
     }
 }
