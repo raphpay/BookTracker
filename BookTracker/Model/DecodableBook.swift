@@ -1,5 +1,5 @@
 //
-//  BookVolume.swift
+//  DecodableBook.swift
 //  BookTracker
 //
 //  Created by Raphaël Payet on 28/06/2022.
@@ -7,9 +7,8 @@
 
 import Foundation
 
-// TODO: Rename this file and remove the BookCategory
-struct BookVolume: Decodable {
-    let books: [BookItem]
+struct DecodableBookVolume: Decodable {
+    let books: [DecodableBookItem]
     let items: Int
     
     enum CodingKeys: String, CodingKey {
@@ -18,10 +17,10 @@ struct BookVolume: Decodable {
     }
 }
 
-struct BookItem: Decodable, Identifiable {
+struct DecodableBookItem: Decodable, Identifiable {
     let id: String
     let link: String
-    let bookInfo: BookInfo
+    let bookInfo: DecodableBookInfo
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -30,7 +29,10 @@ struct BookItem: Decodable, Identifiable {
     }
 }
 
-struct BookInfo: Decodable {
+let bookItemMock = DecodableBookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)",
+                            bookInfo: DecodableBookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: "", description: "", pageCount: 200, publishedDate: "207", language: "en", categories: [], imageLinks: nil, industryIdentifiers: nil))
+
+struct DecodableBookInfo: Decodable {
     let title: String
     let authors: [String]?
     let subtitle: String?
@@ -39,14 +41,11 @@ struct BookInfo: Decodable {
     let publishedDate: String?
     let language: String?
     let categories: [String]?
-    let imageLinks: ImageLinks?
-    let industryIdentifiers: [IndustryIdentifiers]?
+    let imageLinks: DecodableImageLinks?
+    let industryIdentifiers: [DecodableIndustryIdentifiers]?
 }
 
-let bookItemMock = BookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)",
-                            bookInfo: BookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: "", description: "", pageCount: 200, publishedDate: "207", language: "en", categories: [], imageLinks: nil, industryIdentifiers: nil))
-
-struct ImageLinks: Decodable {
+struct DecodableImageLinks: Decodable {
     let smallThumbnail: String?
     let thumbnail: String?
     let small: String?
@@ -55,7 +54,7 @@ struct ImageLinks: Decodable {
     let extraLarge: String?
 }
 
-struct IndustryIdentifiers: Decodable, Hashable {
+struct DecodableIndustryIdentifiers: Decodable, Hashable {
     let type: String
     let identifier: String
     

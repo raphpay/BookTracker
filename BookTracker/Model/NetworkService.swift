@@ -13,16 +13,17 @@ class NetworkService {
     
     let baseURL = "https://www.googleapis.com/books/v1/volumes?q="
     
-    func fetchBooks(with queries: String, completion: @escaping ((_ books: [BookItem]) -> Void)) {
+    func fetchBooks(with queries: String, completion: @escaping ((_ books: [DecodableBookItem]) -> Void)) {
         guard !queries.isEmpty else { return }
         guard let url = URL(string: "\(baseURL)\(queries)") else { return }
         AF.request(url)
             .validate()
-            .responseDecodable(of: BookVolume.self) { response in
+            .responseDecodable(of: DecodableBookVolume.self) { response in
                 guard let volume = response.value else { return }
-                var bookArray: [BookItem] = []
+                var bookArray: [DecodableBookItem] = []
                 for item in 0..<min(volume.books.count, 10) {
-                    bookArray.append(volume.books[item])
+                    let book = volume.books[item]
+                    bookArray.append(book)
                 }
                 completion(bookArray)
             }

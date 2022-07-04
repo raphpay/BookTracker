@@ -6,24 +6,43 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct BookMock: Identifiable {
-    let id = UUID()
-    let title: String
-    let cover: String
-    var library: Library
+final class BookGroup: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var books: List<Book>
 }
 
-var toReadBooks = [
-    BookMock(title: "1984", cover: "Book-Cover", library: .toRead),
-]
+final class Book: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var link: String
+    @Persisted var bookInfo: BookInfo?
+}
 
-var readingBooks = [
-    BookMock(title: "Hyper Focus", cover: "Book-Cover", library: .reading),
-    BookMock(title: "Parapente", cover: "Book-Cover", library: .toRead),
-]
+final class BookInfo: Object, ObjectKeyIdentifiable {
+    @Persisted var title: String
+    @Persisted var authors = List<String>()
+    @Persisted var subtitle: String?
+    @Persisted var bookDescription: String?
+    @Persisted var pageCount: Int?
+    @Persisted var publishedDate: String?
+    @Persisted var language: String?
+    @Persisted var categories = List<String>()
+    @Persisted var imageLinks: ImageLinks?
+    @Persisted var industryIdentifiers = List<IndustryIdentifiers>()
+}
 
-var finishedBooks = [
-    BookMock(title: "Labyrinthes", cover: "Book-Cover", library: .finished),
-    BookMock(title: "Les amants du Mont-Blanc", cover: "Book-Cover", library: .finished),
-]
+final class ImageLinks: Object, ObjectKeyIdentifiable {
+    @Persisted var smallThumbnail: String?
+    @Persisted var thumbnail: String?
+    @Persisted var small: String?
+    @Persisted var medium: String?
+    @Persisted var large: String?
+    @Persisted var extraLarge: String?
+}
+
+final class IndustryIdentifiers: Object, ObjectKeyIdentifiable {
+    @Persisted var type: String?
+    @Persisted var identifier: String?
+}
+

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		860A06EF286B539400902121 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 860A06EE286B539400902121 /* Alamofire */; };
 		860A06F2286B53E200902121 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F1286B53E200902121 /* NetworkService.swift */; };
-		860A06F4286B548300902121 /* BookVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F3286B548300902121 /* BookVolume.swift */; };
+		860A06F4286B548300902121 /* DecodableBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F3286B548300902121 /* DecodableBook.swift */; };
 		860A06F6286C247900902121 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F5286C247900902121 /* RoundedButton.swift */; };
 		860A06F8286D69C400902121 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F7286D69C400902121 /* String+Ext.swift */; };
 		860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F9286F0E4C00902121 /* BookInfoView.swift */; };
@@ -25,6 +25,7 @@
 		8631C273285A741100625E39 /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C272285A741100625E39 /* Colors+Ext.swift */; };
 		863F658D2872E61300FFBEE8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 863F658C2872E61300FFBEE8 /* Realm */; };
 		863F658F2872E61300FFBEE8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 863F658E2872E61300FFBEE8 /* RealmSwift */; };
+		863F65912873542F00FFBEE8 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F65902873542F00FFBEE8 /* Conversion.swift */; };
 		86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CD9285C971E00978A6D /* ViewRouter.swift */; };
 		86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDB285C994B00978A6D /* TabBarIcon.swift */; };
 		86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDD285C9ADA00978A6D /* HomeView.swift */; };
@@ -47,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		860A06F1286B53E200902121 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		860A06F3286B548300902121 /* BookVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVolume.swift; sourceTree = "<group>"; };
+		860A06F3286B548300902121 /* DecodableBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableBook.swift; sourceTree = "<group>"; };
 		860A06F5286C247900902121 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		860A06F7286D69C400902121 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		860A06F9286F0E4C00902121 /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		8631C26E285A6D7800625E39 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		8631C270285A730D00625E39 /* StopWatchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchButton.swift; sourceTree = "<group>"; };
 		8631C272285A741100625E39 /* Colors+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Ext.swift"; sourceTree = "<group>"; };
+		863F65902873542F00FFBEE8 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
 		86802CD9285C971E00978A6D /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		86802CDB285C994B00978A6D /* TabBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
 		86802CDD285C9ADA00978A6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -102,7 +104,8 @@
 				86A0325928642DDD00AF940E /* Library.swift */,
 				86CD022E286A109B006A8CF6 /* Book.swift */,
 				860A06F1286B53E200902121 /* NetworkService.swift */,
-				860A06F3286B548300902121 /* BookVolume.swift */,
+				863F65902873542F00FFBEE8 /* Conversion.swift */,
+				860A06F3286B548300902121 /* DecodableBook.swift */,
 				860A07362871DF7100902121 /* SearchCategory.swift */,
 			);
 			path = Model;
@@ -313,7 +316,7 @@
 			files = (
 				86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */,
 				86802CE8285CA64C00978A6D /* HomeViewViewModel.swift in Sources */,
-				860A06F4286B548300902121 /* BookVolume.swift in Sources */,
+				860A06F4286B548300902121 /* DecodableBook.swift in Sources */,
 				8631C273285A741100625E39 /* Colors+Ext.swift in Sources */,
 				86E9BF41285C48CF00EF37EA /* PageCounterViewViewModel.swift in Sources */,
 				8631C261285A698E00625E39 /* StopWatchView.swift in Sources */,
@@ -328,6 +331,7 @@
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
 				860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */,
+				863F65912873542F00FFBEE8 /* Conversion.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */,
 				860A07392871F0FE00902121 /* AddBookViewViewModel.swift in Sources */,

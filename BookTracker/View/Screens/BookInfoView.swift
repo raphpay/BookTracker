@@ -18,7 +18,7 @@ import SwiftUI
 
 struct BookInfoView: View {
     
-    var bookItem: BookItem
+    var bookItem: DecodableBookItem
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -31,7 +31,6 @@ struct BookInfoView: View {
                     Text(author)
                 }
             }
-            
             VStack {
                 ForEach(bookItem.bookInfo.industryIdentifiers ?? [], id: \.self) { industryIdentifier in
                     HStack {
@@ -41,7 +40,6 @@ struct BookInfoView: View {
                     }
                 }
             }
-            
             Spacer()
         }
         .frame(maxWidth: .infinity)

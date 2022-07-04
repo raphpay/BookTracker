@@ -14,7 +14,7 @@ class AddBookViewViewModel: ObservableObject {
     @Published var publisherText: String    = ""
     @Published var ISBNText: String         = ""
     @Published var showSearchButton: Bool   = false
-    @Published var foundBooks: [BookItem]   = []
+    @Published var foundBooks: [DecodableBookItem]   = []
     @Published var selectedLibrary: Library = .reading
 }
 
