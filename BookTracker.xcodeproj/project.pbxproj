@@ -23,6 +23,8 @@
 		8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26E285A6D7800625E39 /* ProgressCircle.swift */; };
 		8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C270285A730D00625E39 /* StopWatchButton.swift */; };
 		8631C273285A741100625E39 /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C272285A741100625E39 /* Colors+Ext.swift */; };
+		863F658D2872E61300FFBEE8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 863F658C2872E61300FFBEE8 /* Realm */; };
+		863F658F2872E61300FFBEE8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 863F658E2872E61300FFBEE8 /* RealmSwift */; };
 		86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CD9285C971E00978A6D /* ViewRouter.swift */; };
 		86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDB285C994B00978A6D /* TabBarIcon.swift */; };
 		86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDD285C9ADA00978A6D /* HomeView.swift */; };
@@ -85,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				863F658F2872E61300FFBEE8 /* RealmSwift in Frameworks */,
+				863F658D2872E61300FFBEE8 /* Realm in Frameworks */,
 				860A06EF286B539400902121 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +96,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		860A06F0286B53B500902121 /* Modell */ = {
+		860A06F0286B53B500902121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				86A0325928642DDD00AF940E /* Library.swift */,
@@ -101,7 +105,7 @@
 				860A06F3286B548300902121 /* BookVolume.swift */,
 				860A07362871DF7100902121 /* SearchCategory.swift */,
 			);
-			path = Modell;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8631C252285A698E00625E39 = {
@@ -123,7 +127,7 @@
 		8631C25D285A698E00625E39 /* BookTracker */ = {
 			isa = PBXGroup;
 			children = (
-				860A06F0286B53B500902121 /* Modell */,
+				860A06F0286B53B500902121 /* Model */,
 				86E9BF45285C4B5C00EF37EA /* View */,
 				86E9BF48285C4B7C00EF37EA /* ViewModel */,
 				86E9BF49285C4B8400EF37EA /* Utils */,
@@ -246,6 +250,8 @@
 			name = BookTracker;
 			packageProductDependencies = (
 				860A06EE286B539400902121 /* Alamofire */,
+				863F658C2872E61300FFBEE8 /* Realm */,
+				863F658E2872E61300FFBEE8 /* RealmSwift */,
 			);
 			productName = BookTracker;
 			productReference = 8631C25B285A698E00625E39 /* BookTracker.app */;
@@ -277,6 +283,7 @@
 			mainGroup = 8631C252285A698E00625E39;
 			packageReferences = (
 				860A06ED286B539400902121 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 8631C25C285A698E00625E39 /* Products */;
 			projectDirPath = "";
@@ -545,6 +552,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -552,6 +567,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 860A06ED286B539400902121 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		863F658C2872E61300FFBEE8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		863F658E2872E61300FFBEE8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
