@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = AddBookViewViewModel()
+    @ObservedRealmObject var group: BookGroup
     
     var body: some View {
         NavigationView {
@@ -111,7 +113,12 @@ struct AddBookView: View {
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 Spacer()
-                                Image(systemName: "plus")
+                                Button {
+                                    let realmBook = DataConversion.shared.getBookFromDecobableObject(decodableBook: bookItem)
+                                    $group.books.append(realmBook)
+                                } label: {
+                                    Image(systemName: "plus")
+                                }
                                 NavigationLink(destination: BookInfoView(bookItem: bookItem)) {
                                     Image(systemName: "info")
                                 }
@@ -140,6 +147,6 @@ struct AddBookView: View {
 
 struct AddBookView_Previews: PreviewProvider {
     static var previews: some View {
-        AddBookView()
+        AddBookView(group: BookGroup())
     }
 }

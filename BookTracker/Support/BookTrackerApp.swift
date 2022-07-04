@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct BookTrackerApp: App {
-    
-    @StateObject var viewRouter = ViewRouter()
+struct BookTrackerApp: SwiftUI.App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewRouter: viewRouter)
+            LocalOnlyContentView()
         }
     }
 }

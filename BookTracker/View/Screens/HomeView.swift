@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HomeView: View {
     
     @StateObject var viewModel = HomeViewViewModel()
+    @ObservedRealmObject var group: BookGroup
     
     var body: some View {
         VStack {
@@ -22,7 +24,7 @@ struct HomeView: View {
             Spacer()
         }
         .fullScreenCover(isPresented: $viewModel.showAddBookSheet) {
-            AddBookView()
+            AddBookView(group: group)
         }
     }
     
@@ -100,6 +102,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(group: BookGroup())
     }
 }
