@@ -68,7 +68,14 @@ struct HomeView: View {
     var paginationTab: some View {
         TabView(selection: $viewModel.selectedPage) {
             ForEach(Library.allCases, id: \.self) { library in
-                Text(library.name).tag(library.tag)
+                VStack {
+                    ForEach(group.books) { book in
+                        if book.library == library.rawValue,
+                           let bookTitle = book.bookInfo?.title {
+                            Text(bookTitle)
+                        }
+                    }
+                }.tag(library.tag)
             }
         }
         .onReceive(viewModel.$selectedPage, perform: { value in
