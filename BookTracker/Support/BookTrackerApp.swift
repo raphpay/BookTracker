@@ -17,3 +17,4 @@ struct BookTrackerApp: SwiftUI.App {
         }
     }
 }
+
