@@ -28,4 +28,22 @@ class NetworkService {
                 completion(bookArray)
             }
     }
+    
+    func getFirstNonNilImageURL(imageLinks: ImageLinks?) -> String? {
+        var url = ""
+        if let extraLarge = imageLinks?.extraLarge {
+            url = extraLarge
+        } else if let large = imageLinks?.large {
+            url = large
+        } else if let medium = imageLinks?.medium {
+            url = medium
+        } else if let small = imageLinks?.small {
+            url = small
+        } else if let thumbnail = imageLinks?.thumbnail {
+            url = thumbnail
+        } else if let smallThumbnail = imageLinks?.smallThumbnail {
+            url = smallThumbnail
+        }
+        return url
+    }
 }
