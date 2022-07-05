@@ -29,7 +29,6 @@ enum Library: String, CaseIterable, Identifiable {
         }
     }
     
-    // TODO: To be removed if not used
     var tag: Int {
         switch self {
         case .toRead:

@@ -66,12 +66,12 @@ struct HomeView: View {
     }
     
     var paginationTab: some View {
-        TabView(selection: $viewModel.selectedId) {
+        TabView(selection: $viewModel.selectedPage) {
             ForEach(Library.allCases, id: \.self) { library in
-                Text(library.name)
+                Text(library.name).tag(library.tag)
             }
         }
-        .onReceive(viewModel.$selectedId, perform: { value in
+        .onReceive(viewModel.$selectedPage, perform: { value in
             viewModel.setStates(from: value)
         })
         .tabViewStyle(.page(indexDisplayMode: .never))
