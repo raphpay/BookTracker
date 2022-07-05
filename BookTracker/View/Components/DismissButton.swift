@@ -21,6 +21,7 @@ struct DismissButton: View {
                     .foregroundColor(Color(uiColor: .label))
                     .imageScale(.large)
                     .frame(width: 44, height: 44)
+                    .background(.ultraThinMaterial, in: Circle())
             }
         }
         .padding()

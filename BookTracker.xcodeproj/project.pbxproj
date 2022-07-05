@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860A06EF286B539400902121 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 860A06EE286B539400902121 /* Alamofire */; };
+		860A06F2286B53E200902121 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F1286B53E200902121 /* NetworkService.swift */; };
+		860A06F4286B548300902121 /* DecodableBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F3286B548300902121 /* DecodableBook.swift */; };
+		860A06F6286C247900902121 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F5286C247900902121 /* RoundedButton.swift */; };
+		860A06F8286D69C400902121 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F7286D69C400902121 /* String+Ext.swift */; };
+		860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A06F9286F0E4C00902121 /* BookInfoView.swift */; };
+		860A07372871DF7100902121 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A07362871DF7100902121 /* SearchCategory.swift */; };
+		860A07392871F0FE00902121 /* AddBookViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A07382871F0FE00902121 /* AddBookViewViewModel.swift */; };
 		8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C25E285A698E00625E39 /* BookTrackerApp.swift */; };
 		8631C261285A698E00625E39 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C260285A698E00625E39 /* StopWatchView.swift */; };
 		8631C263285A698F00625E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8631C262285A698F00625E39 /* Assets.xcassets */; };
@@ -15,13 +23,18 @@
 		8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C26E285A6D7800625E39 /* ProgressCircle.swift */; };
 		8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C270285A730D00625E39 /* StopWatchButton.swift */; };
 		8631C273285A741100625E39 /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631C272285A741100625E39 /* Colors+Ext.swift */; };
+		863F658D2872E61300FFBEE8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 863F658C2872E61300FFBEE8 /* Realm */; };
+		863F658F2872E61300FFBEE8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 863F658E2872E61300FFBEE8 /* RealmSwift */; };
+		863F65912873542F00FFBEE8 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F65902873542F00FFBEE8 /* Conversion.swift */; };
+		863F65952873580B00FFBEE8 /* LocalOnlyContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F65942873580B00FFBEE8 /* LocalOnlyContentView.swift */; };
+		863F65972873592600FFBEE8 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F65962873592600FFBEE8 /* EmptyView.swift */; };
 		86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CD9285C971E00978A6D /* ViewRouter.swift */; };
 		86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDB285C994B00978A6D /* TabBarIcon.swift */; };
 		86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDD285C9ADA00978A6D /* HomeView.swift */; };
 		86802CE0285C9AE100978A6D /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CDF285C9AE100978A6D /* MoreView.swift */; };
 		86802CE6285CA5DE00978A6D /* BookCategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */; };
 		86802CE8285CA64C00978A6D /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */; };
-		86A0325A28642DDD00AF940E /* BookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0325928642DDD00AF940E /* BookCategory.swift */; };
+		86A0325A28642DDD00AF940E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0325928642DDD00AF940E /* Library.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
 		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
@@ -36,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		860A06F1286B53E200902121 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		860A06F3286B548300902121 /* DecodableBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableBook.swift; sourceTree = "<group>"; };
+		860A06F5286C247900902121 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		860A06F7286D69C400902121 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		860A06F9286F0E4C00902121 /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
+		860A07362871DF7100902121 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
+		860A07382871F0FE00902121 /* AddBookViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewViewModel.swift; sourceTree = "<group>"; };
 		8631C25B285A698E00625E39 /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8631C25E285A698E00625E39 /* BookTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerApp.swift; sourceTree = "<group>"; };
 		8631C260285A698E00625E39 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
@@ -45,13 +65,16 @@
 		8631C26E285A6D7800625E39 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		8631C270285A730D00625E39 /* StopWatchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchButton.swift; sourceTree = "<group>"; };
 		8631C272285A741100625E39 /* Colors+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Ext.swift"; sourceTree = "<group>"; };
+		863F65902873542F00FFBEE8 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		863F65942873580B00FFBEE8 /* LocalOnlyContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalOnlyContentView.swift; sourceTree = "<group>"; };
+		863F65962873592600FFBEE8 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		86802CD9285C971E00978A6D /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		86802CDB285C994B00978A6D /* TabBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
 		86802CDD285C9ADA00978A6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		86802CDF285C9AE100978A6D /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCategoryButton.swift; sourceTree = "<group>"; };
 		86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
-		86A0325928642DDD00AF940E /* BookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCategory.swift; sourceTree = "<group>"; };
+		86A0325928642DDD00AF940E /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86CD022C286A0CCA006A8CF6 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -70,12 +93,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				863F658F2872E61300FFBEE8 /* RealmSwift in Frameworks */,
+				863F658D2872E61300FFBEE8 /* Realm in Frameworks */,
+				860A06EF286B539400902121 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		860A06F0286B53B500902121 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				863F65922873571000FFBEE8 /* Objects */,
+				863F65932873571B00FFBEE8 /* Services */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8631C252285A698E00625E39 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +130,7 @@
 		8631C25D285A698E00625E39 /* BookTracker */ = {
 			isa = PBXGroup;
 			children = (
-				86A0325B28642DE500AF940E /* New Group */,
+				860A06F0286B53B500902121 /* Model */,
 				86E9BF45285C4B5C00EF37EA /* View */,
 				86E9BF48285C4B7C00EF37EA /* ViewModel */,
 				86E9BF49285C4B8400EF37EA /* Utils */,
@@ -113,13 +148,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		86A0325B28642DE500AF940E /* New Group */ = {
+		863F65922873571000FFBEE8 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				86A0325928642DDD00AF940E /* BookCategory.swift */,
+				86A0325928642DDD00AF940E /* Library.swift */,
 				86CD022E286A109B006A8CF6 /* Book.swift */,
+				860A06F3286B548300902121 /* DecodableBook.swift */,
+				860A07362871DF7100902121 /* SearchCategory.swift */,
 			);
-			path = "New Group";
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		863F65932873571B00FFBEE8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				860A06F1286B53E200902121 /* NetworkService.swift */,
+				863F65902873542F00FFBEE8 /* Conversion.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		86E9BF44285C4B5100EF37EA /* Support */ = {
@@ -149,6 +195,9 @@
 				8631C260285A698E00625E39 /* StopWatchView.swift */,
 				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
 				86CD022C286A0CCA006A8CF6 /* AddBookView.swift */,
+				860A06F9286F0E4C00902121 /* BookInfoView.swift */,
+				863F65942873580B00FFBEE8 /* LocalOnlyContentView.swift */,
+				863F65962873592600FFBEE8 /* EmptyView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -164,6 +213,7 @@
 				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
 				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
 				8631C270285A730D00625E39 /* StopWatchButton.swift */,
+				860A06F5286C247900902121 /* RoundedButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -173,6 +223,7 @@
 			children = (
 				86802CD9285C971E00978A6D /* ViewRouter.swift */,
 				86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */,
+				860A07382871F0FE00902121 /* AddBookViewViewModel.swift */,
 				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
 				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
 			);
@@ -201,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				8631C272285A741100625E39 /* Colors+Ext.swift */,
+				860A06F7286D69C400902121 /* String+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -221,6 +273,11 @@
 			dependencies = (
 			);
 			name = BookTracker;
+			packageProductDependencies = (
+				860A06EE286B539400902121 /* Alamofire */,
+				863F658C2872E61300FFBEE8 /* Realm */,
+				863F658E2872E61300FFBEE8 /* RealmSwift */,
+			);
 			productName = BookTracker;
 			productReference = 8631C25B285A698E00625E39 /* BookTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +306,10 @@
 				Base,
 			);
 			mainGroup = 8631C252285A698E00625E39;
+			packageReferences = (
+				860A06ED286B539400902121 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 8631C25C285A698E00625E39 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,27 +338,37 @@
 			files = (
 				86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */,
 				86802CE8285CA64C00978A6D /* HomeViewViewModel.swift in Sources */,
+				860A06F4286B548300902121 /* DecodableBook.swift in Sources */,
 				8631C273285A741100625E39 /* Colors+Ext.swift in Sources */,
 				86E9BF41285C48CF00EF37EA /* PageCounterViewViewModel.swift in Sources */,
 				8631C261285A698E00625E39 /* StopWatchView.swift in Sources */,
+				860A06F2286B53E200902121 /* NetworkService.swift in Sources */,
 				86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */,
 				86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */,
+				863F65952873580B00FFBEE8 /* LocalOnlyContentView.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
 				86CD022F286A109B006A8CF6 /* Book.swift in Sources */,
 				86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */,
 				86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */,
+				860A06F6286C247900902121 /* RoundedButton.swift in Sources */,
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
+				860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */,
+				863F65912873542F00FFBEE8 /* Conversion.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */,
+				860A07392871F0FE00902121 /* AddBookViewViewModel.swift in Sources */,
 				86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */,
 				86802CE6285CA5DE00978A6D /* BookCategoryButton.swift in Sources */,
+				863F65972873592600FFBEE8 /* EmptyView.swift in Sources */,
 				86802CE0285C9AE100978A6D /* MoreView.swift in Sources */,
 				8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */,
+				860A07372871DF7100902121 /* SearchCategory.swift in Sources */,
+				860A06F8286D69C400902121 /* String+Ext.swift in Sources */,
 				86E9BF3D285BA24900EF37EA /* SFSymbols-Enum.swift in Sources */,
 				86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */,
 				8631C26D285A6A9300625E39 /* Assets-Enum.swift in Sources */,
-				86A0325A28642DDD00AF940E /* BookCategory.swift in Sources */,
+				86A0325A28642DDD00AF940E /* Library.swift in Sources */,
 				86E9BF3F285BA43100EF37EA /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +570,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		860A06ED286B539400902121 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		860A06EE286B539400902121 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 860A06ED286B539400902121 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		863F658C2872E61300FFBEE8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		863F658E2872E61300FFBEE8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 863F658B2872E61300FFBEE8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8631C253285A698E00625E39 /* Project object */;
 }

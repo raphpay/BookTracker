@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
     
     @StateObject var viewRouter: ViewRouter
+    @ObservedRealmObject var group: BookGroup
     @State var showSheet: Bool = false
     
     var body: some View {
@@ -18,7 +20,7 @@ struct ContentView: View {
                 Spacer()
                 switch viewRouter.currentPage {
                 case .home:
-                    HomeView()
+                    HomeView(group: group)
                 case .more:
                     MoreView()
                 }
@@ -34,11 +36,14 @@ struct ContentView: View {
         .sheet(isPresented: $showSheet) {
             StopWatchView()
         }
+        .onAppear {
+            print(group.books)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouter())
+        ContentView(viewRouter: ViewRouter(), group: BookGroup())
     }
 }
