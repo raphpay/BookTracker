@@ -114,7 +114,7 @@ struct AddBookView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 Spacer()
                                 Button {
-                                    let realmBook = DataConversion.shared.getBookFromDecobableObject(decodableBook: bookItem)
+                                    let realmBook = viewModel.createRealmBook(bookItem: bookItem)
                                     $group.books.append(realmBook)
                                 } label: {
                                     Image(systemName: "plus")

@@ -17,6 +17,12 @@ final class Book: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var link: String
     @Persisted var bookInfo: BookInfo?
+    @Persisted var library: String = Library.reading.rawValue
+    
+    var type: Library {
+        get { return Library(rawValue: library)! }
+        set { library = newValue.rawValue }
+    }
 }
 
 final class BookInfo: Object, ObjectKeyIdentifiable {
