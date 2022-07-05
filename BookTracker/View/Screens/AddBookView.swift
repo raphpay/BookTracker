@@ -26,7 +26,7 @@ struct AddBookView: View {
                 .padding()
                 
                 HStack {
-                    ForEach(searchCategories) { category in
+                    ForEach(SearchCategory.allCases) { category in
                         let isSelected = viewModel.selectedIDs.contains(where: { $0 == category.tag })
                         
                         Button {
@@ -49,43 +49,43 @@ struct AddBookView: View {
                 }
                 .padding(.horizontal)
                 
-                if viewModel.selectedIDs.contains(where: { $0 == 0 }) {
-                    TextField("Search by title", text: $viewModel.titleText, onEditingChanged: { _ in
+                if viewModel.selectedIDs.contains(where: { $0 == SearchCategory.title.tag }) {
+                    TextField(SearchCategory.title.placeholder, text: $viewModel.titleText, onEditingChanged: { _ in
                         viewModel.animateShowButton()
                     }, onCommit: {
-                        //
+                        viewModel.searchBook()
                     })
                         .textFieldStyle(.roundedBorder)
                         .padding()
                 }
                 
-                if viewModel.selectedIDs.contains(where: { $0 == 1 }) {
-                    TextField("Search by author", text: $viewModel.authorText, onEditingChanged: { _ in
+                if viewModel.selectedIDs.contains(where: { $0 == SearchCategory.author.tag }) {
+                    TextField(SearchCategory.author.placeholder, text: $viewModel.authorText, onEditingChanged: { _ in
                         viewModel.animateShowButton()
                     }, onCommit: {
-                        //
-                    })
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                }
-                
-                
-                if viewModel.selectedIDs.contains(where: { $0 == 2 }) {
-                    TextField("Search by publisher", text: $viewModel.publisherText, onEditingChanged: { _ in
-                        viewModel.animateShowButton()
-                    }, onCommit: {
-                        //
+                        viewModel.searchBook()
                     })
                         .textFieldStyle(.roundedBorder)
                         .padding()
                 }
                 
                 
-                if viewModel.selectedIDs.contains(where: { $0 == 3 }) {
-                    TextField("Search by ISBN", text: $viewModel.ISBNText, onEditingChanged: { _ in
+                if viewModel.selectedIDs.contains(where: { $0 == SearchCategory.paperPublisher.tag }) {
+                    TextField(SearchCategory.paperPublisher.placeholder, text: $viewModel.publisherText, onEditingChanged: { _ in
                         viewModel.animateShowButton()
                     }, onCommit: {
-                        //
+                        viewModel.searchBook()
+                    })
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                }
+                
+                
+                if viewModel.selectedIDs.contains(where: { $0 == SearchCategory.isbn.tag }) {
+                    TextField(SearchCategory.isbn.placeholder, text: $viewModel.ISBNText, onEditingChanged: { _ in
+                        viewModel.animateShowButton()
+                    }, onCommit: {
+                        viewModel.searchBook()
                     })
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.numberPad)

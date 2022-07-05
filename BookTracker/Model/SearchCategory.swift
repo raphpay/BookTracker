@@ -7,16 +7,60 @@
 
 import SwiftUI
 
-struct SearchCategory: Identifiable {
-    let id = UUID()
-    let title: String
-    let tag: Int
-    let color: Color
+enum SearchCategory: String, CaseIterable, Identifiable {
+    case title, author, paperPublisher, isbn
+    
+    var id: String { return self.rawValue }
+    
+    var title: String {
+        switch self {
+        case .title:
+            return "Title"
+        case .author:
+            return "Author"
+        case .paperPublisher:
+            return "Publisher"
+        case .isbn:
+            return "ISBN"
+        }
+    }
+    
+    var placeholder: String {
+        switch self {
+        case .title:
+            return "Search by title"
+        case .author:
+            return "Search by author"
+        case .paperPublisher:
+            return "Search by publisher"
+        case .isbn:
+            return "Search by ISBN code"
+        }
+    }
+    
+    var tag: Int {
+        switch self {
+        case .title:
+            return 0
+        case .author:
+            return 1
+        case .paperPublisher:
+            return 2
+        case .isbn:
+            return 3
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .title:
+            return .green
+        case .author:
+            return .red
+        case .paperPublisher:
+            return .blue
+        case .isbn:
+            return .purple
+        }
+    }
 }
-
-let searchCategories = [
-    SearchCategory(title: "Title", tag: 0, color: .green),
-    SearchCategory(title: "Author", tag: 1, color: .red),
-    SearchCategory(title: "Publisher", tag: 2, color: .blue),
-    SearchCategory(title: "ISBN", tag: 3, color: .purple),
-]
