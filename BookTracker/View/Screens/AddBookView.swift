@@ -98,34 +98,7 @@ struct AddBookView: View {
                 
                 VStack {
                     ForEach(viewModel.foundBooks) { bookItem in
-                        let firstAuthor = bookItem.bookInfo.authors?[0]
-                        
-                        VStack(alignment: .leading) {
-                            HStack {
-                                HStack {
-                                    Text(bookItem.bookInfo.title)
-                                    if firstAuthor != nil {
-                                        Text("-")
-                                            .foregroundStyle(.secondary)
-                                        Text(firstAuthor ?? "")
-                                            .foregroundStyle(.secondary)
-                                    }
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                Spacer()
-                                Button {
-                                    let realmBook = viewModel.createRealmBook(bookItem: bookItem)
-                                    $group.books.append(realmBook)
-                                } label: {
-                                    Image(systemName: "plus")
-                                }
-                                NavigationLink(destination: BookInfoView(bookItem: bookItem)) {
-                                    Image(systemName: "info")
-                                }
-                            }
-                            Divider()
-                        }
-                        .padding(.bottom)
+                        BookCell(group: group, decodableBookItem: bookItem, library: viewModel.selectedLibrary)
                     }
                 }
                 .padding()

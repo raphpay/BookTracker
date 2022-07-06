@@ -29,9 +29,6 @@ struct DecodableBookItem: Decodable, Identifiable {
     }
 }
 
-let bookItemMock = DecodableBookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)",
-                            bookInfo: DecodableBookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: "", description: "", pageCount: 200, publishedDate: "207", language: "en", categories: [], imageLinks: nil, industryIdentifiers: nil))
-
 struct DecodableBookInfo: Decodable {
     let title: String
     let authors: [String]?
@@ -62,3 +59,13 @@ struct DecodableIndustryIdentifiers: Decodable, Hashable {
         hasher.combine(type)
     }
 }
+
+let mockImageLink = DecodableImageLinks(smallThumbnail: nil, thumbnail: nil, small: nil, medium: nil,
+                                        large: "http://books.google.com/books/content?id=seTB7nOSn0IC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                                        extraLarge: nil)
+
+let bookItemMock = DecodableBookItem(id: UUID().uuidString, link: "link\(UUID().uuidString)",
+                            bookInfo: DecodableBookInfo(title: "Hyperfocus", authors: ["Chris Bailey"], subtitle: "", description: "", pageCount: 200, publishedDate: "207", language: "en",
+                                                        categories: [],
+                                                        imageLinks: mockImageLink,
+                                                        industryIdentifiers: nil))

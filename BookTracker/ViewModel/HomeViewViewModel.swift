@@ -26,11 +26,18 @@ extension HomeViewViewModel {
     }
     
     func setStates(from library: Library) {
-        print(library.color, library.self)
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
             selectedLibrary = library
             selectedColor = library.color
             selectedPage = library.tag
         }
+    }
+    
+    func getRotationAngle(from index: Int) -> Double {
+        var angle: Double = 0
+        if index > 1 {
+            angle = Double(-5 * index)
+        }
+        return angle
     }
 }

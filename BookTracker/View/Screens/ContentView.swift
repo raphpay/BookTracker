@@ -36,9 +36,6 @@ struct ContentView: View {
         .sheet(isPresented: $showSheet) {
             StopWatchView()
         }
-        .onAppear {
-            print(group.books)
-        }
     }
 }
 

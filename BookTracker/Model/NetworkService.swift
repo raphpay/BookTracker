@@ -29,21 +29,21 @@ class NetworkService {
             }
     }
     
-    func getFirstNonNilImageURL(imageLinks: ImageLinks?) -> String? {
-        var url = ""
+    func getFirstNonNilImageURL(imageLinks: ImageLinks?) -> URL? {
+        var urlString = ""
         if let extraLarge = imageLinks?.extraLarge {
-            url = extraLarge
+            urlString = extraLarge
         } else if let large = imageLinks?.large {
-            url = large
+            urlString = large
         } else if let medium = imageLinks?.medium {
-            url = medium
+            urlString = medium
         } else if let small = imageLinks?.small {
-            url = small
+            urlString = small
         } else if let thumbnail = imageLinks?.thumbnail {
-            url = thumbnail
+            urlString = thumbnail
         } else if let smallThumbnail = imageLinks?.smallThumbnail {
-            url = smallThumbnail
+            urlString = smallThumbnail
         }
-        return url
+        return URL(string: urlString)
     }
 }

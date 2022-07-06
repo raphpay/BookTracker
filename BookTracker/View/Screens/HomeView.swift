@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Kingfisher
 
 struct HomeView: View {
     
@@ -20,8 +21,6 @@ struct HomeView: View {
             textTabBar
             
             paginationTab
-            
-            Spacer()
         }
         .fullScreenCover(isPresented: $viewModel.showAddBookSheet) {
             AddBookView(group: group)
@@ -68,14 +67,35 @@ struct HomeView: View {
     var paginationTab: some View {
         TabView(selection: $viewModel.selectedPage) {
             ForEach(Library.allCases, id: \.self) { library in
+                let booksInLibrary = group.books.where({ $0.library == library.rawValue })
                 VStack {
-                    ForEach(group.books) { book in
-                        if book.library == library.rawValue,
-                           let bookTitle = book.bookInfo?.title {
-                            Text(bookTitle)
+                    ZStack {
+                        ForEach(0..<min(booksInLibrary.count, 4), id: \.self) { index in
+                            let book = booksInLibrary[index]
+                            if let imageURL = NetworkService.shared.getFirstNonNilImageURL(imageLinks: book.bookInfo?.imageLinks) {
+                                KFImage(imageURL)
+                                    .resizable()
+                                    .frame(width: 180, height: 250)
+                                    .rotationEffect(.degrees(viewModel.getRotationAngle(from: index)))
+                                    .zIndex(Double(-index))
+                            }
+                            
                         }
                     }
-                }.tag(library.tag)
+                    VStack() {
+                        Text("Books in the library :")
+                            .font(.title.weight(.semibold))
+                        
+                        ForEach(booksInLibrary) { book in
+                            BookCell(group: group, book: book, library: library)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                    Spacer()
+                }
+                .padding()
+                .tag(library.tag)
             }
         }
         .onReceive(viewModel.$selectedPage, perform: { value in
@@ -83,7 +103,6 @@ struct HomeView: View {
         })
         .tabViewStyle(.page(indexDisplayMode: .never))
         .tabViewStyle(PageTabViewStyle())
-        .frame(maxHeight: 350)
     }
     
     var tabGeometryReader: some View {
