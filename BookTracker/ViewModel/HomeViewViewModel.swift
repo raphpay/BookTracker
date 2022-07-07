@@ -14,6 +14,7 @@ class HomeViewViewModel: ObservableObject {
     @Published var tabWidth: CGFloat = 0
     @Published var selectedPage = Library.reading.tag
     @Published var showAddBookSheet: Bool = false
+    @Published var selectedIndex: Int = 0
 }
 
 extension HomeViewViewModel {

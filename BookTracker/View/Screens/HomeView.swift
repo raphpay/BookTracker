@@ -26,7 +26,7 @@ struct HomeView: View {
             }
             
             if appState.showDetails {
-                BooksView()
+                BooksView(group: group, selectedLibrary: $viewModel.selectedLibrary, selectedIndex: $viewModel.selectedIndex)
             }
         }
         .fullScreenCover(isPresented: $viewModel.showAddBookSheet) {
@@ -93,11 +93,14 @@ struct HomeView: View {
                         Text("Books in the library :")
                             .font(.title.weight(.semibold))
                         
-                        ForEach(booksInLibrary) { book in
-                            // TODO: Could be useful to get the index instead of the book
+                        ForEach(0..<booksInLibrary.count, id: \.self) { index in
+                            let book = booksInLibrary[index]
+                            
                             BookCell(group: group, book: book, library: library) {
                                 withAnimation {
                                     appState.showDetails = true
+                                    viewModel.selectedLibrary = library
+                                    viewModel.selectedIndex = index
                                 }
                             }
                         }
