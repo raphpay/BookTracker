@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Kingfisher
 
 struct BooksView: View {
     
@@ -18,18 +19,42 @@ struct BooksView: View {
     
     var body: some View {
         ZStack {
-            Color.red
+            
+            Color.white
                 .ignoresSafeArea()
+            
             if !booksInLibrary.isEmpty {
                 TabView(selection: $selectedIndex) {
                     ForEach(0..<booksInLibrary.count, id: \.self) { index in
                         let book = booksInLibrary[index]
-                        Text(book.bookInfo?.title ?? "nil")
-                            .tag(index)
+                        let imageLink = NetworkService.shared.getFirstNonNilImageURL(imageLinks: book.bookInfo?.imageLinks)
+                        VStack {
+                            KFImage(imageLink)
+                                .tag(index)
+                            
+                            Text(book.bookInfo?.title ?? "Pas de titre")
+                                .font(.title2.weight(.semibold))
+                            
+                            Button {
+                                // TODO: Add actions
+                            } label: {
+                                // TODO: Style buttons
+                                Text("Ajouter des pages")
+                            }
+                            
+                            Button {
+                                // TODO: Add actions
+                            } label: {
+                                // TODO: Style buttons
+                                Text("Marqué comme terminé")
+                            }
+
+                            Spacer()
+                        }
+                        .padding(.top, 40)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle())
-                .tabViewStyle(.page(indexDisplayMode: .never))
             }
         }
         .onAppear {
