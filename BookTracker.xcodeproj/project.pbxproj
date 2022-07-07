@@ -37,6 +37,8 @@
 		86A0325A28642DDD00AF940E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0325928642DDD00AF940E /* Library.swift */; };
 		86ADA19E2875A33800B93A46 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 86ADA19D2875A33800B93A46 /* Kingfisher */; };
 		86ADA1A02875ADB300B93A46 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA19F2875ADB300B93A46 /* BookCell.swift */; };
+		86ADA1A22876AC1300B93A46 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1A12876AC1300B93A46 /* BooksView.swift */; };
+		86ADA1A42876AE0600B93A46 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1A32876AE0600B93A46 /* AppState.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
 		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
@@ -79,6 +81,8 @@
 		86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
 		86A0325928642DDD00AF940E /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		86ADA19F2875ADB300B93A46 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		86ADA1A12876AC1300B93A46 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
+		86ADA1A32876AE0600B93A46 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86CD022C286A0CCA006A8CF6 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				860A06F9286F0E4C00902121 /* BookInfoView.swift */,
 				863F65942873580B00FFBEE8 /* LocalOnlyContentView.swift */,
 				863F65962873592600FFBEE8 /* EmptyView.swift */,
+				86ADA1A12876AC1300B93A46 /* BooksView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				860A07382871F0FE00902121 /* AddBookViewViewModel.swift */,
 				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
 				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
+				86ADA1A32876AE0600B93A46 /* AppState.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
 				860A06FA286F0E4C00902121 /* BookInfoView.swift in Sources */,
 				863F65912873542F00FFBEE8 /* Conversion.swift in Sources */,
+				86ADA1A22876AC1300B93A46 /* BooksView.swift in Sources */,
 				8631C271285A730D00625E39 /* StopWatchButton.swift in Sources */,
 				86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */,
 				860A07392871F0FE00902121 /* AddBookViewViewModel.swift in Sources */,
@@ -375,6 +382,7 @@
 				86802CE0285C9AE100978A6D /* MoreView.swift in Sources */,
 				8631C26F285A6D7800625E39 /* ProgressCircle.swift in Sources */,
 				860A07372871DF7100902121 /* SearchCategory.swift in Sources */,
+				86ADA1A42876AE0600B93A46 /* AppState.swift in Sources */,
 				860A06F8286D69C400902121 /* String+Ext.swift in Sources */,
 				86E9BF3D285BA24900EF37EA /* SFSymbols-Enum.swift in Sources */,
 				86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */,

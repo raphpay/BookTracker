@@ -8,8 +8,8 @@
 import Foundation
 
 enum Page {
-     case home
-     case more
+    case home
+    case more
  }
 
 class ViewRouter: ObservableObject {

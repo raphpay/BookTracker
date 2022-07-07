@@ -14,6 +14,7 @@ struct BookCell: View {
     var decodableBookItem: DecodableBookItem? = nil
     var book: Book? = nil
     let library: Library
+    var openAction: (() -> Void)? = nil
     var firstAuthor: String? {
         if let itemAuthors = decodableBookItem?.bookInfo.authors {
             return itemAuthors[0]
@@ -60,7 +61,9 @@ struct BookCell: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()
-                    NavigationLink(destination: Text("TODO")) {
+                    Button {
+                        openAction?()
+                    } label: {
                         Image(systemName: "info")
                     }
                 }

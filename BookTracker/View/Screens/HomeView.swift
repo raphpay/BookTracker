@@ -11,16 +11,23 @@ import Kingfisher
 
 struct HomeView: View {
     
+    @EnvironmentObject var appState: AppState
     @StateObject var viewModel = HomeViewViewModel()
     @ObservedRealmObject var group: BookGroup
     
     var body: some View {
-        VStack {
-            statusBar
+        ZStack {
+            VStack {
+                statusBar
+                
+                textTabBar
+                
+                paginationTab
+            }
             
-            textTabBar
-            
-            paginationTab
+            if appState.showDetails {
+                BooksView()
+            }
         }
         .fullScreenCover(isPresented: $viewModel.showAddBookSheet) {
             AddBookView(group: group)
@@ -87,7 +94,12 @@ struct HomeView: View {
                             .font(.title.weight(.semibold))
                         
                         ForEach(booksInLibrary) { book in
-                            BookCell(group: group, book: book, library: library)
+                            // TODO: Could be useful to get the index instead of the book
+                            BookCell(group: group, book: book, library: library) {
+                                withAnimation {
+                                    appState.showDetails = true
+                                }
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

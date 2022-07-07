@@ -11,9 +11,12 @@ import RealmSwift
 @main
 struct BookTrackerApp: SwiftUI.App {
     
+    @StateObject var appState = AppState()
+    
     var body: some Scene {
         WindowGroup {
             LocalOnlyContentView()
+                .environmentObject(appState)
         }
     }
 }
