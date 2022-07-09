@@ -18,6 +18,7 @@ final class Book: Object, ObjectKeyIdentifiable {
     @Persisted var link: String
     @Persisted var bookInfo: BookInfo?
     @Persisted var library: String = Library.reading.rawValue
+    @Persisted var pagesRead: Int = 0
     
     var type: Library {
         get { return Library(rawValue: library)! }

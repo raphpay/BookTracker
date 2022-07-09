@@ -89,24 +89,28 @@ struct HomeView: View {
                             
                         }
                     }
-                    VStack() {
-                        Text("Books in the library :")
-                            .font(.title.weight(.semibold))
-                        
-                        ForEach(0..<booksInLibrary.count, id: \.self) { index in
-                            let book = booksInLibrary[index]
+                    if booksInLibrary.isEmpty {
+                        Text("No books in this library.\nAdd one with the '+' button.")
+                    } else {
+                        VStack() {
+                            Text("Books in the library :")
+                                .font(.title.weight(.semibold))
                             
-                            BookCell(group: group, book: book, library: library) {
-                                withAnimation {
-                                    appState.showDetails = true
-                                    viewModel.selectedLibrary = library
-                                    viewModel.selectedIndex = index
+                            ForEach(0..<booksInLibrary.count, id: \.self) { index in
+                                let book = booksInLibrary[index]
+                                
+                                BookCell(group: group, book: book, library: library) {
+                                    withAnimation {
+                                        appState.showDetails = true
+                                        viewModel.selectedLibrary = library
+                                        viewModel.selectedIndex = index
+                                    }
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
                     Spacer()
                 }
                 .padding()
