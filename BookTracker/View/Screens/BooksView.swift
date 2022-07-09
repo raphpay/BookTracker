@@ -16,6 +16,8 @@ struct BooksView: View {
     @Binding var selectedLibrary: Library
     @Binding var selectedIndex: Int
     @State var booksInLibrary: [Book] = []
+    @State var showAddPagesModal: Bool = false
+    @State var selectedBook: Book = Book()
     
     var body: some View {
         ZStack {
@@ -36,7 +38,8 @@ struct BooksView: View {
                                 .font(.title2.weight(.semibold))
                             
                             Button {
-                                // TODO: Add actions
+                                showAddPagesModal = true
+                                selectedBook = book
                             } label: {
                                 // TODO: Style buttons
                                 Text("Ajouter des pages")
@@ -60,6 +63,9 @@ struct BooksView: View {
         .onAppear {
             fetchBooks()
         }
+        .sheet(isPresented: $showAddPagesModal, content: {
+            PageCounterView(group: group, book: selectedBook)
+        })
         .overlay(
             DismissButton {
                 withAnimation {

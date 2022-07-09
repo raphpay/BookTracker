@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import RealmSwift
+import Kingfisher
 
 struct PageCounterView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = PageCounterViewViewModel()
-
+    @ObservedRealmObject var group: BookGroup
+    @ObservedRealmObject var book: Book
     
     var body: some View {
         ZStack {
@@ -31,6 +34,7 @@ struct PageCounterView: View {
                 HStack(spacing: 30) {
                     StepperButton(systemName: SFSymbols.minusCircle.rawValue) {
                         viewModel.decrementProgress()
+                        $book.pagesRead.wrappedValue = Int(viewModel.pagesRead)
                     }
 
                     Text("Page \(Int(viewModel.pagesRead)) over \(Int(viewModel.totalPages))")
@@ -39,6 +43,7 @@ struct PageCounterView: View {
                     
                     StepperButton(systemName: SFSymbols.plusCircle.rawValue) {
                         viewModel.incrementProgress()
+                        $book.pagesRead.wrappedValue = Int(viewModel.pagesRead)
                     }
                 }
                 
@@ -46,20 +51,23 @@ struct PageCounterView: View {
                 
                 HStack {
                     
-                    BookInfos(title: "Hyper Focus", author: "Chris Bailey", category: "Self Development")
+                    BookInfos(title: viewModel.bookTitle, author: viewModel.bookFirstAuthor, category: viewModel.bookCategory)
                     
-                    BookCover(bookImage: Assets.bookCover.name)
+                    BookCover(imageLinks: viewModel.bookImageLinks)
                 }
                 
                 Spacer()
             }
+        }
+        .onAppear {
+            viewModel.setUp(with: book)
         }
     }
 }
 
 struct PageCounterView_Previews: PreviewProvider {
     static var previews: some View {
-        PageCounterView()
+        PageCounterView(group: BookGroup(), book: Book())
     }
 }
 
@@ -103,16 +111,18 @@ struct BookInfos: View {
 }
 
 
+// TODO: Use this component more widely across the app
 struct BookCover: View {
     
-    var bookImage: String
+    var imageLinks: ImageLinks?
     
     var body: some View {
         ZStack {
+            let link = NetworkService.shared.getFirstNonNilImageURL(imageLinks: imageLinks)
             RoundedRectangle(cornerRadius: 10)
                 .stroke(lineWidth: 1)
             
-            Image(bookImage)
+            KFImage(link)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         }
