@@ -83,8 +83,6 @@ struct BooksView: View {
                 booksInLibrary.append(book)
             }
         }
-        
-        print(booksInLibrary)
     }
 }
 

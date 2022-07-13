@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RealmSwift
-import Kingfisher
 
 struct PageCounterView: View {
     @Environment(\.dismiss) var dismiss
@@ -50,9 +49,7 @@ struct PageCounterView: View {
                 Spacer()
                 
                 HStack {
-                    
-                    BookInfos(title: viewModel.bookTitle, author: viewModel.bookFirstAuthor, category: viewModel.bookCategory)
-                    
+                    bookInfos
                     BookCover(imageLinks: viewModel.bookImageLinks)
                 }
                 
@@ -63,69 +60,25 @@ struct PageCounterView: View {
             viewModel.setUp(with: book)
         }
     }
-}
-
-struct PageCounterView_Previews: PreviewProvider {
-    static var previews: some View {
-        PageCounterView(group: BookGroup(), book: Book())
-    }
-}
-
-struct StepperButton: View {
     
-    var systemName: String
-    var action: (() -> Void)
-    
-    var body: some View {
-        Button {
-            action()
-        } label: {
-            Image(systemName: systemName)
-                .font(.title)
-                .frame(width: 35, height: 35)
-                .foregroundColor(.ui.darkBlueGray)
-        }
-    }
-}
-
-struct BookInfos: View {
-    
-    var title: String
-    var author: String
-    var category: String
-    
-    var body: some View {
+    var bookInfos: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(title)
+            Text(viewModel.bookTitle)
                 .font(.title)
                 .bold()
                 .padding()
             
-            Text("by \(author)")
+            Text("by \(viewModel.bookFirstAuthor)")
                 .foregroundColor(.secondary)
             
-            Text(category)
+            Text(viewModel.bookCategory)
                 .font(.title3)
         }
     }
 }
 
-
-// TODO: Use this component more widely across the app
-struct BookCover: View {
-    
-    var imageLinks: ImageLinks?
-    
-    var body: some View {
-        ZStack {
-            let link = NetworkService.shared.getFirstNonNilImageURL(imageLinks: imageLinks)
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 1)
-            
-            KFImage(link)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
-        .frame(width: 160, height: 220)
+struct PageCounterView_Previews: PreviewProvider {
+    static var previews: some View {
+        PageCounterView(group: BookGroup(), book: Book())
     }
 }
