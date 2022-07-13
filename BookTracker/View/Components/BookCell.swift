@@ -42,6 +42,10 @@ struct BookCell: View {
                     Button {
                         let realmBook = DataConversion.shared.getBookFromDecobableObject(decodableBook: item)
                         realmBook.library = library.rawValue
+                        if library == .finished,
+                           let pageCount = realmBook.bookInfo?.pageCount {
+                            realmBook.pagesRead = pageCount
+                        }
                         $group.books.append(realmBook)
                     } label: {
                         Image(systemName: "plus")
