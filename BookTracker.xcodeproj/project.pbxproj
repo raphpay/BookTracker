@@ -39,6 +39,8 @@
 		86ADA1A02875ADB300B93A46 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA19F2875ADB300B93A46 /* BookCell.swift */; };
 		86ADA1A22876AC1300B93A46 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1A12876AC1300B93A46 /* BooksView.swift */; };
 		86ADA1A42876AE0600B93A46 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1A32876AE0600B93A46 /* AppState.swift */; };
+		86ADA1DA287E907600B93A46 /* BookCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1D9287E907600B93A46 /* BookCover.swift */; };
+		86ADA1DC287E913000B93A46 /* StepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1DB287E913000B93A46 /* StepperButton.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
 		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
@@ -83,6 +85,8 @@
 		86ADA19F2875ADB300B93A46 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		86ADA1A12876AC1300B93A46 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
 		86ADA1A32876AE0600B93A46 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		86ADA1D9287E907600B93A46 /* BookCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCover.swift; sourceTree = "<group>"; };
+		86ADA1DB287E913000B93A46 /* StepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperButton.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86CD022C286A0CCA006A8CF6 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				8631C270285A730D00625E39 /* StopWatchButton.swift */,
 				860A06F5286C247900902121 /* RoundedButton.swift */,
 				86ADA19F2875ADB300B93A46 /* BookCell.swift */,
+				86ADA1D9287E907600B93A46 /* BookCover.swift */,
+				86ADA1DB287E913000B93A46 /* StepperButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -362,9 +368,11 @@
 				86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */,
 				86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */,
 				863F65952873580B00FFBEE8 /* LocalOnlyContentView.swift in Sources */,
+				86ADA1DA287E907600B93A46 /* BookCover.swift in Sources */,
 				8631C25F285A698E00625E39 /* BookTrackerApp.swift in Sources */,
 				86CD022F286A109B006A8CF6 /* Book.swift in Sources */,
 				86802CDA285C971E00978A6D /* ViewRouter.swift in Sources */,
+				86ADA1DC287E913000B93A46 /* StepperButton.swift in Sources */,
 				86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */,
 				860A06F6286C247900902121 /* RoundedButton.swift in Sources */,
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,

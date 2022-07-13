@@ -29,10 +29,9 @@ struct BooksView: View {
                 TabView(selection: $selectedIndex) {
                     ForEach(0..<booksInLibrary.count, id: \.self) { index in
                         let book = booksInLibrary[index]
-                        let imageLink = NetworkService.shared.getFirstNonNilImageURL(imageLinks: book.bookInfo?.imageLinks)
+                        
                         VStack {
-                            KFImage(imageLink)
-                                .tag(index)
+                            BookCover(imageLinks: book.bookInfo?.imageLinks)
                             
                             Text(book.bookInfo?.title ?? "Pas de titre")
                                 .font(.title2.weight(.semibold))
@@ -45,11 +44,13 @@ struct BooksView: View {
                                 Text("Ajouter des pages")
                             }
                             
-                            Button {
-                                // TODO: Add actions
-                            } label: {
-                                // TODO: Style buttons
-                                Text("Marqué comme terminé")
+                            if selectedLibrary != .finished {
+                                Button {
+                                    // TODO: Add actions
+                                } label: {
+                                    // TODO: Style buttons
+                                    Text("Marqué comme terminé")
+                                }
                             }
 
                             Spacer()

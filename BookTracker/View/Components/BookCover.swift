@@ -18,6 +18,11 @@ struct BookCover: View {
                 .stroke(lineWidth: 1)
             
             KFImage(link)
+                .placeholder {
+                    Image(Assets.bookCover.name)
+                        .resizable()
+                        .frame(width: 160, height: 220)
+                }
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         }
