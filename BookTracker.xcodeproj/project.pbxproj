@@ -182,6 +182,83 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		86B9760E2895751E00318642 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF3E285BA43100EF37EA /* Background.swift */,
+				86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */,
+				86802CDB285C994B00978A6D /* TabBarIcon.swift */,
+				860A06F5286C247900902121 /* RoundedButton.swift */,
+				86ADA1DB287E913000B93A46 /* StepperButton.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
+		86B9760F2895752300318642 /* Molecules */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF3A285BA22E00EF37EA /* DismissButton.swift */,
+				8631C270285A730D00625E39 /* StopWatchButton.swift */,
+				86ADA1D9287E907600B93A46 /* BookCover.swift */,
+			);
+			path = Molecules;
+			sourceTree = "<group>";
+		};
+		86B976102895752C00318642 /* Organisms */ = {
+			isa = PBXGroup;
+			children = (
+				86E9BF4C285C796E00EF37EA /* NavigationTabBar.swift */,
+				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
+				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
+				86ADA19F2875ADB300B93A46 /* BookCell.swift */,
+			);
+			path = Organisms;
+			sourceTree = "<group>";
+		};
+		86B976112895759000318642 /* Level1 */ = {
+			isa = PBXGroup;
+			children = (
+				863F65942873580B00FFBEE8 /* LocalOnlyContentView.swift */,
+				86E9BF38285BA19C00EF37EA /* ContentView.swift */,
+				86802CDD285C9ADA00978A6D /* HomeView.swift */,
+				86802CDF285C9AE100978A6D /* MoreView.swift */,
+			);
+			path = Level1;
+			sourceTree = "<group>";
+		};
+		86B97612289575B300318642 /* Level2 */ = {
+			isa = PBXGroup;
+			children = (
+				8631C260285A698E00625E39 /* StopWatchView.swift */,
+				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
+				86CD022C286A0CCA006A8CF6 /* AddBookView.swift */,
+				860A06F9286F0E4C00902121 /* BookInfoView.swift */,
+				863F65962873592600FFBEE8 /* EmptyView.swift */,
+				86ADA1A12876AC1300B93A46 /* BooksView.swift */,
+			);
+			path = Level2;
+			sourceTree = "<group>";
+		};
+		86B97613289575D600318642 /* Level1 */ = {
+			isa = PBXGroup;
+			children = (
+				86ADA1A32876AE0600B93A46 /* AppState.swift */,
+				86802CD9285C971E00978A6D /* ViewRouter.swift */,
+				86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */,
+			);
+			path = Level1;
+			sourceTree = "<group>";
+		};
+		86B97614289575E000318642 /* Level2 */ = {
+			isa = PBXGroup;
+			children = (
+				860A07382871F0FE00902121 /* AddBookViewViewModel.swift */,
+				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
+				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
+			);
+			path = Level2;
+			sourceTree = "<group>";
+		};
 		86E9BF44285C4B5100EF37EA /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,16 +280,8 @@
 		86E9BF46285C4B6200EF37EA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				86E9BF38285BA19C00EF37EA /* ContentView.swift */,
-				86802CDD285C9ADA00978A6D /* HomeView.swift */,
-				86802CDF285C9AE100978A6D /* MoreView.swift */,
-				8631C260285A698E00625E39 /* StopWatchView.swift */,
-				86E9BF36285BA18B00EF37EA /* PageCounterView.swift */,
-				86CD022C286A0CCA006A8CF6 /* AddBookView.swift */,
-				860A06F9286F0E4C00902121 /* BookInfoView.swift */,
-				863F65942873580B00FFBEE8 /* LocalOnlyContentView.swift */,
-				863F65962873592600FFBEE8 /* EmptyView.swift */,
-				86ADA1A12876AC1300B93A46 /* BooksView.swift */,
+				86B976112895759000318642 /* Level1 */,
+				86B97612289575B300318642 /* Level2 */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -220,18 +289,9 @@
 		86E9BF47285C4B7000EF37EA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				86E9BF4C285C796E00EF37EA /* NavigationTabBar.swift */,
-				86802CDB285C994B00978A6D /* TabBarIcon.swift */,
-				86E9BF3E285BA43100EF37EA /* Background.swift */,
-				86802CE5285CA5DE00978A6D /* BookCategoryButton.swift */,
-				86E9BF3A285BA22E00EF37EA /* DismissButton.swift */,
-				8631C26E285A6D7800625E39 /* ProgressCircle.swift */,
-				86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */,
-				8631C270285A730D00625E39 /* StopWatchButton.swift */,
-				860A06F5286C247900902121 /* RoundedButton.swift */,
-				86ADA19F2875ADB300B93A46 /* BookCell.swift */,
-				86ADA1D9287E907600B93A46 /* BookCover.swift */,
-				86ADA1DB287E913000B93A46 /* StepperButton.swift */,
+				86B9760E2895751E00318642 /* Atoms */,
+				86B9760F2895752300318642 /* Molecules */,
+				86B976102895752C00318642 /* Organisms */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -239,12 +299,8 @@
 		86E9BF48285C4B7C00EF37EA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				86802CD9285C971E00978A6D /* ViewRouter.swift */,
-				86802CE7285CA64C00978A6D /* HomeViewViewModel.swift */,
-				860A07382871F0FE00902121 /* AddBookViewViewModel.swift */,
-				86E9BF40285C48CF00EF37EA /* PageCounterViewViewModel.swift */,
-				86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */,
-				86ADA1A32876AE0600B93A46 /* AppState.swift */,
+				86B97613289575D600318642 /* Level1 */,
+				86B97614289575E000318642 /* Level2 */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
