@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MoreView: View {
     var body: some View {
-        Text("More")
+        VStack {
+            Spacer()
+            Text("More")
+            Spacer()
+        }
     }
 }
 

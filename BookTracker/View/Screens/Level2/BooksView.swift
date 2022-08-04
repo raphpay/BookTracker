@@ -12,60 +12,33 @@ import Kingfisher
 struct BooksView: View {
     
     @EnvironmentObject var appState: AppState
-    @ObservedRealmObject var group: BookGroup
     @Binding var selectedLibrary: Library
     @Binding var selectedIndex: Int
-    @State var booksInLibrary: [Book] = []
+    @State var books: Results<Book>?
     @State var showAddPagesModal: Bool = false
     @State var selectedBook: Book = Book()
     
     var body: some View {
         ZStack {
-            
             Color.white
                 .ignoresSafeArea()
-            
-            if !booksInLibrary.isEmpty {
-                TabView(selection: $selectedIndex) {
-                    ForEach(0..<booksInLibrary.count, id: \.self) { index in
-                        let book = booksInLibrary[index]
-                        
-                        VStack {
-                            BookCover(imageLinks: book.bookInfo?.imageLinks)
-                            
-                            Text(book.bookInfo?.title ?? "Pas de titre")
-                                .font(.title2.weight(.semibold))
-                            
-                            Button {
-                                showAddPagesModal = true
-                                selectedBook = book
-                            } label: {
-                                // TODO: Style buttons
-                                Text("Ajouter des pages")
-                            }
-                            
-                            if selectedLibrary != .finished {
-                                Button {
-                                    // TODO: Add actions
-                                } label: {
-                                    // TODO: Style buttons
-                                    Text("Marqué comme terminé")
-                                }
-                            }
 
-                            Spacer()
-                        }
-                        .padding(.top, 40)
+            if let books = books,
+                !books.isEmpty {
+                TabView(selection: $selectedIndex) {
+                    ForEach(0..<books.count, id: \.self) { index in
+                        let book = books[index]
+                        SingleBookView(book: book,
+                                       selectedLibrary: $selectedLibrary,
+                                       selectedBook: $selectedBook,
+                                       showAddPagesModal: $showAddPagesModal)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle())
             }
         }
-        .onAppear {
-            fetchBooks()
-        }
         .sheet(isPresented: $showAddPagesModal, content: {
-            PageCounterView(group: group, book: selectedBook)
+            PageCounterView(book: selectedBook)
         })
         .overlay(
             DismissButton {
@@ -77,18 +50,10 @@ struct BooksView: View {
                 .frame(maxHeight: .infinity, alignment: .topTrailing)
         )
     }
-    
-    func fetchBooks() {
-        for book in group.books {
-            if book.library == selectedLibrary.rawValue {
-                booksInLibrary.append(book)
-            }
-        }
-    }
 }
 
 struct BooksView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksView(group: BookGroup(), selectedLibrary: .constant(.reading), selectedIndex: .constant(0))
+        BooksView(selectedLibrary: .constant(.reading), selectedIndex: .constant(0))
     }
 }

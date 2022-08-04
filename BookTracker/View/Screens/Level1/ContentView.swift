@@ -9,10 +9,8 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    
     @EnvironmentObject var appState: AppState
     @StateObject var viewRouter: ViewRouter
-    @ObservedRealmObject var group: BookGroup
     @State var showSheet: Bool = false
     
     var body: some View {
@@ -20,7 +18,7 @@ struct ContentView: View {
             ZStack(alignment: .bottom) {
                 switch viewRouter.currentPage {
                 case .home:
-                    HomeView(group: group)
+                    HomeView()
                 case .more:
                     MoreView()
                 }
@@ -39,8 +37,9 @@ struct ContentView: View {
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouter(), group: BookGroup())
+        ContentView(viewRouter: ViewRouter())
     }
 }

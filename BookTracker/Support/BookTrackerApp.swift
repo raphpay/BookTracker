@@ -6,18 +6,41 @@
 //
 
 import SwiftUI
-import RealmSwift
+//import RealmSwift
+
+//@main
+//struct BookTrackerApp: SwiftUI.App {
+//
+//    @StateObject var appState = AppState()
+//
+//    var body: some Scene {
+//        WindowGroup {
+//            LocalOnlyContentView()
+//                .environmentObject(appState)
+//        }
+//    }
+//}
+//
+
+//@main
+//struct BookTrackerApp: App {
+//  var body: some Scene {
+//    WindowGroup {
+//        NewContentView()
+//    }
+//  }
+//}
 
 @main
-struct BookTrackerApp: SwiftUI.App {
-    
+struct BookTrackerApp: App {
+
     @StateObject var appState = AppState()
+    @StateObject var viewRouter = ViewRouter()
     
     var body: some Scene {
         WindowGroup {
-            LocalOnlyContentView()
+            ContentView(viewRouter: viewRouter)
                 .environmentObject(appState)
         }
     }
 }
-

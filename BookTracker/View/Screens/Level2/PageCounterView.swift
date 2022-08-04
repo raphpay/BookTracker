@@ -11,7 +11,6 @@ import RealmSwift
 struct PageCounterView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = PageCounterViewViewModel()
-    @ObservedRealmObject var group: BookGroup
     @ObservedRealmObject var book: Book
     
     var body: some View {
@@ -79,6 +78,6 @@ struct PageCounterView: View {
 
 struct PageCounterView_Previews: PreviewProvider {
     static var previews: some View {
-        PageCounterView(group: BookGroup(), book: Book())
+        PageCounterView(book: BookMock.nouvelles)
     }
 }

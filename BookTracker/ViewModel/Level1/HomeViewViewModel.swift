@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
 class HomeViewViewModel: ObservableObject {
     @Published var selectedLibrary: Library = .reading
@@ -15,6 +16,10 @@ class HomeViewViewModel: ObservableObject {
     @Published var selectedPage = Library.reading.tag
     @Published var showAddBookSheet: Bool = false
     @Published var selectedIndex: Int = 0
+    
+    @ObservedResults(Book.self, where: { $0.library == Library.toRead.rawValue })   var toReadBooks
+    @ObservedResults(Book.self, where: { $0.library == Library.reading.rawValue })  var readingBooks
+    @ObservedResults(Book.self, where: { $0.library == Library.finished.rawValue }) var finishedBooks
 }
 
 extension HomeViewViewModel {
@@ -40,5 +45,18 @@ extension HomeViewViewModel {
             angle = Double(-5 * index)
         }
         return angle
+    }
+    
+    func getBooks(from library: Library) -> Results<Book> {
+        var selectedBooks: Results<Book>
+        switch library {
+        case .toRead:
+            selectedBooks = toReadBooks
+        case .reading:
+            selectedBooks = readingBooks
+        case .finished:
+            selectedBooks = finishedBooks
+        }
+        return selectedBooks
     }
 }
