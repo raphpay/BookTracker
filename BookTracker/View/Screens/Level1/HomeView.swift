@@ -7,24 +7,29 @@
 
 import SwiftUI
 import RealmSwift
+import Kingfisher
 
 struct HomeView: View {
-    
+    @EnvironmentObject var appState: AppState
     @StateObject var viewModel = HomeViewViewModel()
-    @ObservedRealmObject var group: BookGroup
+    @ObservedResults(Book.self) var allBooks
     
     var body: some View {
-        VStack {
-            statusBar
+        ZStack {
+            VStack {
+                statusBar
+                textTabBar
+                paginationTab
+            }
             
-            textTabBar
-            
-            paginationTab
-            
-            Spacer()
+            if appState.showDetails {
+                let selectedBooks = viewModel.getBooks(from: viewModel.selectedLibrary)
+                
+                BooksView(selectedLibrary: $viewModel.selectedLibrary, selectedIndex: $viewModel.selectedIndex, books: selectedBooks)
+            }
         }
         .fullScreenCover(isPresented: $viewModel.showAddBookSheet) {
-            AddBookView(group: group)
+            AddBookView()
         }
     }
     
@@ -44,7 +49,7 @@ struct HomeView: View {
         }
         .padding(.horizontal)
     }
-    
+
     var textTabBar: some View {
         HStack {
             ForEach(Library.allCases, id: \.self) { library in
@@ -67,15 +72,13 @@ struct HomeView: View {
     
     var paginationTab: some View {
         TabView(selection: $viewModel.selectedPage) {
-            ForEach(Library.allCases, id: \.self) { library in
-                VStack {
-                    ForEach(group.books) { book in
-                        if book.library == library.rawValue,
-                           let bookTitle = book.bookInfo?.title {
-                            Text(bookTitle)
-                        }
-                    }
-                }.tag(library.tag)
+            ForEach(Library.allCases) { library in
+                let selectedBooks = viewModel.getBooks(from: library)
+                
+                HomeBooksView(library: library, books: selectedBooks,
+                              showDetails: $appState.showDetails,
+                              selectedLibrary: $viewModel.selectedLibrary, selectedIndex: $viewModel.selectedIndex)
+                .tag(library.tag)
             }
         }
         .onReceive(viewModel.$selectedPage, perform: { value in
@@ -83,7 +86,6 @@ struct HomeView: View {
         })
         .tabViewStyle(.page(indexDisplayMode: .never))
         .tabViewStyle(PageTabViewStyle())
-        .frame(maxHeight: 350)
     }
     
     var tabGeometryReader: some View {
@@ -109,6 +111,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(group: BookGroup())
+        HomeView()
     }
 }

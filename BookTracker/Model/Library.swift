@@ -52,4 +52,6 @@ enum Library: String, CaseIterable, Identifiable {
             return .blue
         }
     }
+    
+    static let all: [Library] = [.toRead, .reading, .finished]
 }

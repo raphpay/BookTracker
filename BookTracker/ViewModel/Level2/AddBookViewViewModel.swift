@@ -67,7 +67,7 @@ extension AddBookViewViewModel {
         }
     }
     
-    func createRealmBook(bookItem: DecodableBookItem) -> Book {
+    func createRealmBook(from bookItem: DecodableBookItem) -> Book {
         let realmBook = DataConversion.shared.getBookFromDecobableObject(decodableBook: bookItem)
         realmBook.library = selectedLibrary.rawValue
         return realmBook

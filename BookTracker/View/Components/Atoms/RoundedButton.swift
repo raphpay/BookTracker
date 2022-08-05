@@ -32,8 +32,6 @@ struct RoundedButton: View {
 
 struct RoundedButton_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedButton(title: "Button", showButton: .constant(false)) {
-            print("Button Tapped")
-        }
+        RoundedButton(title: "Button", showButton: .constant(false)) {}
     }
 }

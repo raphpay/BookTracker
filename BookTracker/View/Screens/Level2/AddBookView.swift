@@ -12,7 +12,6 @@ struct AddBookView: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = AddBookViewViewModel()
-    @ObservedRealmObject var group: BookGroup
     
     var body: some View {
         NavigationView {
@@ -98,34 +97,10 @@ struct AddBookView: View {
                 
                 VStack {
                     ForEach(viewModel.foundBooks) { bookItem in
-                        let firstAuthor = bookItem.bookInfo.authors?[0]
-                        
-                        VStack(alignment: .leading) {
-                            HStack {
-                                HStack {
-                                    Text(bookItem.bookInfo.title)
-                                    if firstAuthor != nil {
-                                        Text("-")
-                                            .foregroundStyle(.secondary)
-                                        Text(firstAuthor ?? "")
-                                            .foregroundStyle(.secondary)
-                                    }
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                Spacer()
-                                Button {
-                                    let realmBook = viewModel.createRealmBook(bookItem: bookItem)
-                                    $group.books.append(realmBook)
-                                } label: {
-                                    Image(systemName: "plus")
-                                }
-                                NavigationLink(destination: BookInfoView(bookItem: bookItem)) {
-                                    Image(systemName: "info")
-                                }
-                            }
-                            Divider()
-                        }
-                        .padding(.bottom)
+                        DecodableBookCell(
+                            viewModel: DecodableBookCellViewModel(
+                                decodableBookItem: bookItem,
+                                library: viewModel.selectedLibrary))
                     }
                 }
                 .padding()
@@ -142,11 +117,11 @@ struct AddBookView: View {
                 .padding(.top, 30)
                 .ignoresSafeArea()
     )
-    }    
+    }
 }
 
 struct AddBookView_Previews: PreviewProvider {
     static var previews: some View {
-        AddBookView(group: BookGroup())
+        AddBookView()
     }
 }

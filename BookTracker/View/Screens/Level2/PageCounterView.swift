@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct PageCounterView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = PageCounterViewViewModel()
-
+    @ObservedRealmObject var book: Book
     
     var body: some View {
         ZStack {
@@ -31,6 +32,7 @@ struct PageCounterView: View {
                 HStack(spacing: 30) {
                     StepperButton(systemName: SFSymbols.minusCircle.rawValue) {
                         viewModel.decrementProgress()
+                        $book.pagesRead.wrappedValue = Int(viewModel.pagesRead)
                     }
 
                     Text("Page \(Int(viewModel.pagesRead)) over \(Int(viewModel.totalPages))")
@@ -39,83 +41,43 @@ struct PageCounterView: View {
                     
                     StepperButton(systemName: SFSymbols.plusCircle.rawValue) {
                         viewModel.incrementProgress()
+                        $book.pagesRead.wrappedValue = Int(viewModel.pagesRead)
                     }
                 }
                 
                 Spacer()
                 
                 HStack {
-                    
-                    BookInfos(title: "Hyper Focus", author: "Chris Bailey", category: "Self Development")
-                    
-                    BookCover(bookImage: Assets.bookCover.name)
+                    bookInfos
+                    BookCover(imageLinks: viewModel.bookImageLinks)
                 }
                 
                 Spacer()
             }
+        }
+        .onAppear {
+            viewModel.setUp(with: book)
+        }
+    }
+    
+    var bookInfos: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(viewModel.bookTitle)
+                .font(.title)
+                .bold()
+                .padding()
+            
+            Text("by \(viewModel.bookFirstAuthor)")
+                .foregroundColor(.secondary)
+            
+            Text(viewModel.bookCategory)
+                .font(.title3)
         }
     }
 }
 
 struct PageCounterView_Previews: PreviewProvider {
     static var previews: some View {
-        PageCounterView()
-    }
-}
-
-struct StepperButton: View {
-    
-    var systemName: String
-    var action: (() -> Void)
-    
-    var body: some View {
-        Button {
-            action()
-        } label: {
-            Image(systemName: systemName)
-                .font(.title)
-                .frame(width: 35, height: 35)
-                .foregroundColor(.ui.darkBlueGray)
-        }
-    }
-}
-
-struct BookInfos: View {
-    
-    var title: String
-    var author: String
-    var category: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(title)
-                .font(.title)
-                .bold()
-                .padding()
-            
-            Text("by \(author)")
-                .foregroundColor(.secondary)
-            
-            Text(category)
-                .font(.title3)
-        }
-    }
-}
-
-
-struct BookCover: View {
-    
-    var bookImage: String
-    
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 1)
-            
-            Image(bookImage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
-        .frame(width: 160, height: 220)
+        PageCounterView(book: BookMock.nouvelles)
     }
 }

@@ -9,41 +9,37 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    
+    @EnvironmentObject var appState: AppState
     @StateObject var viewRouter: ViewRouter
-    @ObservedRealmObject var group: BookGroup
     @State var showSheet: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                Spacer()
+            ZStack(alignment: .bottom) {
                 switch viewRouter.currentPage {
                 case .home:
-                    HomeView(group: group)
+                    HomeView()
                 case .more:
                     MoreView()
                 }
-                Spacer()
                 
                 NavigationTabBar(viewRouter: viewRouter,
                                  geometryWidth: geometry.size.width,
                                  geometryHeight: geometry.size.height,
                                  showSheet: $showSheet)
+                .offset(y: appState.showDetails ? 200 : 0)
             }
             .edgesIgnoringSafeArea(.bottom)
         }
         .sheet(isPresented: $showSheet) {
             StopWatchView()
         }
-        .onAppear {
-            print(group.books)
-        }
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouter(), group: BookGroup())
+        ContentView(viewRouter: ViewRouter())
     }
 }
