@@ -30,13 +30,47 @@ struct SingleBookView: View {
                 Text("Ajouter des pages")
             }
             
-            if selectedLibrary != .finished {
-                Button {
-                    // TODO: Add actions
-                } label: {
-                    // TODO: Style buttons
-                    Text("Marqué comme terminé")
+            VStack {
+                Text("Actual category")
+                
+                HStack {
+                    Text("To read")
+                    Spacer()
+                    Button {
+                        selectedLibrary = .toRead
+                        $book.library.wrappedValue = Library.toRead.rawValue
+                    } label: {
+                        Image(systemName: selectedLibrary == .toRead ? "circle.fill" : "circle")
+                    }
+
                 }
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("Reading")
+                    Spacer()
+                    Button {
+                        selectedLibrary = .reading
+                        $book.library.wrappedValue = Library.reading.rawValue
+                    } label: {
+                        Image(systemName: selectedLibrary == .reading ? "circle.fill" : "circle")
+                    }
+
+                }
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("Finished")
+                    Spacer()
+                    Button {
+                        selectedLibrary = .finished
+                        $book.library.wrappedValue = Library.finished.rawValue
+                    } label: {
+                        Image(systemName: selectedLibrary == .finished ? "circle.fill" : "circle")
+                    }
+
+                }
+                .padding(.horizontal)
             }
             
             Spacer()
