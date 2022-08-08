@@ -24,7 +24,7 @@ struct HomeBooksView: View {
                 ZStack {
                     ForEach(0..<min(books.count, 4), id: \.self) { index in
                         let book = books[index]
-                        if let imageURL = NetworkService.shared.getFirstNonNilImageURL(imageLinks: book.bookInfo?.imageLinks) {
+                        if let imageURL = NetworkRequestService.shared.session.getFirstNonNilImageURL(imageLinks: book.bookInfo?.imageLinks) {
                             KFImage(imageURL)
                                 .resizable()
                                 .frame(width: 180, height: 250)

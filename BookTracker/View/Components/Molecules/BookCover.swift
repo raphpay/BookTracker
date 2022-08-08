@@ -13,7 +13,7 @@ struct BookCover: View {
     
     var body: some View {
         ZStack {
-            let link = NetworkService.shared.getFirstNonNilImageURL(imageLinks: imageLinks)
+            let link = NetworkRequestService.shared.session.getFirstNonNilImageURL(imageLinks: imageLinks)
             RoundedRectangle(cornerRadius: 10)
                 .stroke(lineWidth: 1)
             

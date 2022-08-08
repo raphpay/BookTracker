@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class NetworkService {
+class NetworkService: NetworkRequest {
     static let shared = NetworkService()
     
     let baseURL = "https://www.googleapis.com/books/v1/volumes?q="

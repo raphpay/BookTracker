@@ -60,7 +60,7 @@ extension AddBookViewViewModel {
             }
         }
         
-        NetworkService.shared.fetchBooks(with: query) { books in
+        NetworkRequestService.shared.session.fetchBooks(with: query) { books in
             withAnimation {
                 self.foundBooks = books
             }
