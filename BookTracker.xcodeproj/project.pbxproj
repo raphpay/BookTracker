@@ -48,6 +48,7 @@
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
 		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
+		86D7DEE428A1314E0035F124 /* BookTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */; };
 		86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF36285BA18B00EF37EA /* PageCounterView.swift */; };
 		86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF38285BA19C00EF37EA /* ContentView.swift */; };
 		86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3A285BA22E00EF37EA /* DismissButton.swift */; };
@@ -57,6 +58,16 @@
 		86E9BF43285C49E300EF37EA /* ProgressArcCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF42285C49E300EF37EA /* ProgressArcCircle.swift */; };
 		86E9BF4D285C796E00EF37EA /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF4C285C796E00EF37EA /* NavigationTabBar.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86D7DEE528A1314E0035F124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8631C253285A698E00625E39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8631C25A285A698E00625E39;
+			remoteInfo = BookTracker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		860A06F1286B53E200902121 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -98,6 +109,8 @@
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
 		86CD022C286A0CCA006A8CF6 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		86D7DEE128A1314E0035F124 /* BookTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerTests.swift; sourceTree = "<group>"; };
 		86E9BF36285BA18B00EF37EA /* PageCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterView.swift; sourceTree = "<group>"; };
 		86E9BF38285BA19C00EF37EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86E9BF3A285BA22E00EF37EA /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
@@ -120,6 +133,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D7DEDE28A1314E0035F124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -136,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				8631C25D285A698E00625E39 /* BookTracker */,
+				86D7DEE228A1314E0035F124 /* BookTrackerTests */,
 				8631C25C285A698E00625E39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				8631C25B285A698E00625E39 /* BookTracker.app */,
+				86D7DEE128A1314E0035F124 /* BookTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,6 +293,14 @@
 			path = Level2;
 			sourceTree = "<group>";
 		};
+		86D7DEE228A1314E0035F124 /* BookTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */,
+			);
+			path = BookTrackerTests;
+			sourceTree = "<group>";
+		};
 		86E9BF44285C4B5100EF37EA /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +400,24 @@
 			productReference = 8631C25B285A698E00625E39 /* BookTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		86D7DEE028A1314E0035F124 /* BookTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D7DEE928A1314E0035F124 /* Build configuration list for PBXNativeTarget "BookTrackerTests" */;
+			buildPhases = (
+				86D7DEDD28A1314E0035F124 /* Sources */,
+				86D7DEDE28A1314E0035F124 /* Frameworks */,
+				86D7DEDF28A1314E0035F124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86D7DEE628A1314E0035F124 /* PBXTargetDependency */,
+			);
+			name = BookTrackerTests;
+			productName = BookTrackerTests;
+			productReference = 86D7DEE128A1314E0035F124 /* BookTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -382,6 +430,10 @@
 				TargetAttributes = {
 					8631C25A285A698E00625E39 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					86D7DEE028A1314E0035F124 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8631C25A285A698E00625E39;
 					};
 				};
 			};
@@ -405,6 +457,7 @@
 			projectRoot = "";
 			targets = (
 				8631C25A285A698E00625E39 /* BookTracker */,
+				86D7DEE028A1314E0035F124 /* BookTrackerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -416,6 +469,13 @@
 			files = (
 				8631C266285A698F00625E39 /* Preview Assets.xcassets in Resources */,
 				8631C263285A698F00625E39 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D7DEDF28A1314E0035F124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +532,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D7DEDD28A1314E0035F124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D7DEE428A1314E0035F124 /* BookTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86D7DEE628A1314E0035F124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8631C25A285A698E00625E39 /* BookTracker */;
+			targetProxy = 86D7DEE528A1314E0035F124 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8631C267285A698F00625E39 /* Debug */ = {
@@ -649,6 +725,42 @@
 			};
 			name = Release;
 		};
+		86D7DEE728A1314E0035F124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N96T5K2D2H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oriapy.BookTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookTracker.app/BookTracker";
+			};
+			name = Debug;
+		};
+		86D7DEE828A1314E0035F124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N96T5K2D2H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oriapy.BookTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookTracker.app/BookTracker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -666,6 +778,15 @@
 			buildConfigurations = (
 				8631C26A285A698F00625E39 /* Debug */,
 				8631C26B285A698F00625E39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D7DEE928A1314E0035F124 /* Build configuration list for PBXNativeTarget "BookTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D7DEE728A1314E0035F124 /* Debug */,
+				86D7DEE828A1314E0035F124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
