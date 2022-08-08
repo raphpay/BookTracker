@@ -8,7 +8,8 @@
 import Foundation
 
 protocol NetworkRequest {
-    func fetchBooks(with queries: String, completion: @escaping ((_ books: [DecodableBookItem]) -> Void))
+    var baseURLString: String { get set }
+    func fetchBooks(with queries: String, completion: @escaping (Result<[DecodableBookItem], NetworkError>) -> Void)
     func getFirstNonNilImageURL(imageLinks: ImageLinks?) -> URL?
 }
 
@@ -20,4 +21,8 @@ class NetworkRequestService {
     init(session: NetworkRequest = NetworkService.shared) {
         self.session = session
     }
+}
+
+enum NetworkError: Error {
+    case noQueries, badURL, noResponse
 }

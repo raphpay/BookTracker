@@ -9,23 +9,34 @@ import Foundation
 import Alamofire
 
 class NetworkService: NetworkRequest {
+    var baseURLString: String = "https://www.googleapis.com/books/v1/volumes?q="
+    
     static let shared = NetworkService()
     
-    let baseURL = "https://www.googleapis.com/books/v1/volumes?q="
-    
-    func fetchBooks(with queries: String, completion: @escaping ((_ books: [DecodableBookItem]) -> Void)) {
-        guard !queries.isEmpty else { return }
-        guard let url = URL(string: "\(baseURL)\(queries)") else { return }
+    func fetchBooks(with queries: String, completion: @escaping (Result<[DecodableBookItem], NetworkError>) -> Void) {
+        guard !queries.isEmpty else {
+            completion(.failure(.noQueries))
+            return
+        }
+        
+        guard let url = URL(string: "\(baseURLString)\(queries)") else {
+            completion(.failure(.badURL))
+            return
+        }
+        
         AF.request(url)
             .validate()
             .responseDecodable(of: DecodableBookVolume.self) { response in
-                guard let volume = response.value else { return }
+                guard let volume = response.value else {
+                    completion(.failure(.noResponse))
+                    return
+                }
                 var bookArray: [DecodableBookItem] = []
                 for item in 0..<min(volume.books.count, 10) {
                     let book = volume.books[item]
                     bookArray.append(book)
                 }
-                completion(bookArray)
+                completion(.success(bookArray))
             }
     }
     
