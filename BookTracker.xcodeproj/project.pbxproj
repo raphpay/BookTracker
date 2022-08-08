@@ -49,6 +49,7 @@
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
 		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
 		86D7DEE428A1314E0035F124 /* BookTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */; };
+		86D7DEEC28A131B40035F124 /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7DEEB28A131B40035F124 /* NetworkRequestProtocol.swift */; };
 		86E9BF37285BA18B00EF37EA /* PageCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF36285BA18B00EF37EA /* PageCounterView.swift */; };
 		86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF38285BA19C00EF37EA /* ContentView.swift */; };
 		86E9BF3B285BA22E00EF37EA /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E9BF3A285BA22E00EF37EA /* DismissButton.swift */; };
@@ -111,6 +112,7 @@
 		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		86D7DEE128A1314E0035F124 /* BookTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerTests.swift; sourceTree = "<group>"; };
+		86D7DEEB28A131B40035F124 /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
 		86E9BF36285BA18B00EF37EA /* PageCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCounterView.swift; sourceTree = "<group>"; };
 		86E9BF38285BA19C00EF37EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86E9BF3A285BA22E00EF37EA /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				863F65922873571000FFBEE8 /* Objects */,
+				86D7DEEA28A131A40035F124 /* Protocols */,
 				863F65932873571B00FFBEE8 /* Services */,
 			);
 			path = Model;
@@ -299,6 +302,14 @@
 				86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */,
 			);
 			path = BookTrackerTests;
+			sourceTree = "<group>";
+		};
+		86D7DEEA28A131A40035F124 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				86D7DEEB28A131B40035F124 /* NetworkRequestProtocol.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		86E9BF44285C4B5100EF37EA /* Support */ = {
@@ -502,6 +513,7 @@
 				86ADA1DC287E913000B93A46 /* StepperButton.swift in Sources */,
 				86802CDC285C994B00978A6D /* TabBarIcon.swift in Sources */,
 				860A06F6286C247900902121 /* RoundedButton.swift in Sources */,
+				86D7DEEC28A131B40035F124 /* NetworkRequestProtocol.swift in Sources */,
 				86802CDE285C9ADA00978A6D /* HomeView.swift in Sources */,
 				86E9BF39285BA19C00EF37EA /* ContentView.swift in Sources */,
 				8679C0F0289B97D00004ECE1 /* RealmBookCell.swift in Sources */,
