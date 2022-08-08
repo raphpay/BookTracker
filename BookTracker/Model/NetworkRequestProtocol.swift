@@ -24,5 +24,6 @@ class NetworkRequestService {
 }
 
 enum NetworkError: Error {
-    case noQueries, badURL, noResponse
+    case noQueries, badURL, noResponse, noData
 }
+

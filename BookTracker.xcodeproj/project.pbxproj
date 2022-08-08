@@ -46,6 +46,10 @@
 		86ADA1DA287E907600B93A46 /* BookCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1D9287E907600B93A46 /* BookCover.swift */; };
 		86ADA1DC287E913000B93A46 /* StepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADA1DB287E913000B93A46 /* StepperButton.swift */; };
 		86BFFC74285B00D600948743 /* StopWatchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */; };
+		86C3B7AC28A156A3008F76B9 /* FakeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3B7AB28A156A3008F76B9 /* FakeNetworkService.swift */; };
+		86C3B7AE28A1572C008F76B9 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3B7AD28A1572C008F76B9 /* NetworkServiceTests.swift */; };
+		86C3B7B028A157B2008F76B9 /* FakeNetworkServiceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3B7AF28A157B2008F76B9 /* FakeNetworkServiceData.swift */; };
+		86C3B7B328A1658D008F76B9 /* FakeBookVolume.json in Resources */ = {isa = PBXBuildFile; fileRef = 86C3B7B228A1658D008F76B9 /* FakeBookVolume.json */; };
 		86CD022D286A0CCA006A8CF6 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022C286A0CCA006A8CF6 /* AddBookView.swift */; };
 		86CD022F286A109B006A8CF6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD022E286A109B006A8CF6 /* Book.swift */; };
 		86D7DEE428A1314E0035F124 /* BookTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */; };
@@ -108,6 +112,10 @@
 		86ADA1D9287E907600B93A46 /* BookCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCover.swift; sourceTree = "<group>"; };
 		86ADA1DB287E913000B93A46 /* StepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperButton.swift; sourceTree = "<group>"; };
 		86BFFC73285B00D600948743 /* StopWatchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewViewModel.swift; sourceTree = "<group>"; };
+		86C3B7AB28A156A3008F76B9 /* FakeNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkService.swift; sourceTree = "<group>"; };
+		86C3B7AD28A1572C008F76B9 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		86C3B7AF28A157B2008F76B9 /* FakeNetworkServiceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkServiceData.swift; sourceTree = "<group>"; };
+		86C3B7B228A1658D008F76B9 /* FakeBookVolume.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeBookVolume.json; sourceTree = "<group>"; };
 		86CD022C286A0CCA006A8CF6 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		86CD022E286A109B006A8CF6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		86D7DEE128A1314E0035F124 /* BookTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +308,10 @@
 			isa = PBXGroup;
 			children = (
 				86D7DEE328A1314E0035F124 /* BookTrackerTests.swift */,
+				86C3B7AB28A156A3008F76B9 /* FakeNetworkService.swift */,
+				86C3B7AD28A1572C008F76B9 /* NetworkServiceTests.swift */,
+				86C3B7AF28A157B2008F76B9 /* FakeNetworkServiceData.swift */,
+				86C3B7B228A1658D008F76B9 /* FakeBookVolume.json */,
 			);
 			path = BookTrackerTests;
 			sourceTree = "<group>";
@@ -487,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C3B7B328A1658D008F76B9 /* FakeBookVolume.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +562,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86D7DEE428A1314E0035F124 /* BookTrackerTests.swift in Sources */,
+				86C3B7AE28A1572C008F76B9 /* NetworkServiceTests.swift in Sources */,
+				86C3B7AC28A156A3008F76B9 /* FakeNetworkService.swift in Sources */,
+				86C3B7B028A157B2008F76B9 /* FakeNetworkServiceData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

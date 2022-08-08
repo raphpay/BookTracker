@@ -1,0 +1,80 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 574,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "qqRPEAAAQBAJ",
+      "etag": "d1Sxcsl5l7c",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/qqRPEAAAQBAJ",
+      "volumeInfo": {
+        "title": "Hyperfocus",
+        "subtitle": "How to Be More Productive in a World of Distraction",
+        "authors": [
+          "Chris Bailey"
+        ],
+        "publisher": "Penguin",
+        "publishedDate": "2018-08-28",
+        "description": "A practical guide to managing your attention--the most powerful resource you have to get stuff done, become more creative, and live a meaningful life Our attention has never been as overwhelmed as it is today. Many of us recognize that our brains struggle to multitask. Despite this, we feel compelled to do so anyway while we fill each moment of our lives to the brim with mindless distraction. Hyperfocus provides profound insights into how you can best take charge of your attention to achieve a greater sense of purpose and productivity throughout the day. The most recent neuroscientific research reveals that our brain has two powerful modes that can be unlocked when we use our attention effectively: a focused mode (hyperfocus), which is the foundation for being highly productive, and a creative mode (scatterfocus), which enables us to connect ideas in novel ways. Hyperfocus helps you access each of the two mental modes so you can concentrate more deeply, think more clearly, and work and live more deliberately every day. Chris Bailey examines such topics such as: • identifying and dealing with the four key types of distraction and interruption; • establishing a clear physical and mental environment in which to work; • controlling motivation and working fewer hours to become more productive; • taking time-outs with intention; • multitasking strategically; and • learning when to pay attention and when to let your mind wander wherever it wants to. By transforming how you think about your attention, Hyperfocus reveals that the more effectively you learn to take charge of it, the better you'll be able to manage every aspect of your life.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780525522232"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0525522239"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 256,
+        "printType": "BOOK",
+        "categories": [
+          "Self-Help"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=qqRPEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=qqRPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=qqRPEAAAQBAJ&dq=hyperfocus&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=qqRPEAAAQBAJ&dq=hyperfocus&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Hyperfocus.html?hl=&id=qqRPEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=qqRPEAAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Hyperfocus provides profound insights into how you can best take charge of your attention to achieve a greater sense of purpose and productivity throughout the day."
+      }
+    },
+  ]
+}
