@@ -37,17 +37,13 @@ extension FakeNetworkService {
             completion(.failure(.noQueries))
             return
         }
-        guard let url = URL(string: "\(baseURLString)\(queries)") else {
-            completion(.failure(.badURL))
-            return
-        }
         
         guard error == nil else {
             completion(.failure(.badURL))
             return
         }
         
-        guard data != nil else {
+        guard let data = data else {
             completion(.failure(.noData))
             return
         }
@@ -58,7 +54,18 @@ extension FakeNetworkService {
             return
         }
         
-        print(url)
+        guard let volume = try? JSONDecoder().decode(DecodableBookVolume.self, from: data) else {
+            completion(.failure(.noResponse))
+            return
+        }
+        
+        var bookArray: [DecodableBookItem] = []
+        for item in 0..<min(volume.books.count, 10) {
+            let book = volume.books[item]
+            bookArray.append(book)
+        }
+        
+        completion(.success(bookArray))
     }
     
     

@@ -29,9 +29,10 @@ extension NetworkServiceTests {
             case .failure(let error):
                 XCTAssertEqual(error, NetworkError.noQueries)
             }
+            
+            expectation.fulfill()
         }
         
-        expectation.fulfill()
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -47,9 +48,10 @@ extension NetworkServiceTests {
             case .failure(let error):
                 XCTAssertEqual(error, NetworkError.badURL)
             }
+            
+            expectation.fulfill()
         }
         
-        expectation.fulfill()
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -65,9 +67,29 @@ extension NetworkServiceTests {
             case .failure(let error):
                 XCTAssertEqual(error, NetworkError.noData)
             }
+            
+            expectation.fulfill()
         }
         
-        expectation.fulfill()
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGivenNilResponse_WhenFetchingBooks_ThenErrorIsThrown() {
+        fakeService.session = FakeNetworkService(data: FakeNetworkServiceData.correctData,
+                                                 response: nil, error: nil)
+
+        let expectation = XCTestExpectation(description: "Error when fetching books with not correct response")
+
+        fakeService.session.fetchBooks(with: FakeNetworkServiceData.titleQuery) { result in
+            switch result {
+            case .success(let books):
+                XCTAssertEqual(books.count, 0)
+            case .failure(let error):
+                XCTAssertEqual(error, NetworkError.noResponse)
+            }
+            expectation.fulfill()
+        }
+
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -84,9 +106,30 @@ extension NetworkServiceTests {
             case .failure(let error):
                 XCTAssertEqual(error, NetworkError.noResponse)
             }
+            
+            expectation.fulfill()
         }
 
-        expectation.fulfill()
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGivenAllCorrect_WhenFetchingBooks_ThenBooksAreNotEmpty() {
+        fakeService.session = FakeNetworkService(data: FakeNetworkServiceData.correctData,
+                                                 response: FakeNetworkServiceData.responseOK, error: nil)
+
+        let expectation = XCTestExpectation(description: "Success when fetching books with correct data and response")
+
+        fakeService.session.fetchBooks(with: FakeNetworkServiceData.titleQuery) { result in
+            switch result {
+            case .success(let books):
+                XCTAssertEqual(books.count, FakeNetworkServiceData.correctDataBookCount)
+            case .failure(let error):
+                XCTAssertEqual(error, nil)
+            }
+            
+            expectation.fulfill()
+        }
+
         wait(for: [expectation], timeout: 0.01)
     }
     
